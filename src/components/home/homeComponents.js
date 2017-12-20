@@ -1,5 +1,5 @@
 import React from 'react'
-import {  Carousel, WhiteSpace, WingBlank } from 'antd-mobile';
+import {  Carousel, WhiteSpace, WingBlank,SearchBar } from 'antd-mobile';
 
 export default class HomeComponent extends React.Component{
     state = {
@@ -17,16 +17,13 @@ export default class HomeComponent extends React.Component{
     render(){
         return <div>
                     <Carousel
-                      autoplay={false}
+                      autoplay={true}
                       infinite={true}
                       selectedIndex={1}
-                      beforeChange={(from, to) => console.log(`slide from ${from} to ${to}`)}
-                      afterChange={index => console.log('slide to', index)}
                     >
                       {this.state.data.map(ii => (
                         <a
                           key={ii}
-                          href="http://www.alipay.com"
                           style={{ display: 'inline-block', width: '100%', height: this.state.imgHeight }}
                         >
                           <img
@@ -42,7 +39,7 @@ export default class HomeComponent extends React.Component{
                         </a>
                       ))}
                     </Carousel>
-
+                     <SearchBar placeholder="Search" maxLength={8} />
                 </div>
     }
 }
