@@ -1,5 +1,5 @@
 import React from 'react'
-import { TabBar } from 'antd-mobile';
+import { TabBar,SearchBar,WingBlank,WhiteSpace } from 'antd-mobile';
 import 'antd-mobile/dist/antd-mobile.css';
 import { hashHistory } from 'react-router'
 
@@ -27,6 +27,9 @@ class TabBarExample extends React.Component {
   renderContent(pageText) {
     return (
       <div style={{ backgroundColor: 'white', height: '100%', textAlign: 'center' }}>
+              <WingBlank><div className="sub-title">Normal</div></WingBlank>
+              <SearchBar placeholder="Search" maxLength={8} />
+              <WhiteSpace />
         {this.props.children}
       </div>
     );
