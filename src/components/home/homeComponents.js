@@ -18,7 +18,7 @@ export default class HomeComponent extends React.Component{
         return <div>
                     <Carousel
                       autoplay={false}
-                      infinite
+                      infinite={true}
                       selectedIndex={1}
                       beforeChange={(from, to) => console.log(`slide from ${from} to ${to}`)}
                       afterChange={index => console.log('slide to', index)}
