@@ -19,7 +19,7 @@ class TabBarExample extends React.Component {
     hashHistory.push('type')
   }
   carts(event) {
-    hashHistory.push('cart')
+    hashHistory.push('login')
   }
   mines(event) {
     hashHistory.push('mine')
@@ -36,6 +36,7 @@ class TabBarExample extends React.Component {
 
   render() {
     return (
+      
       <div style={{ position: 'fixed', height: '100%', width: '100%', top: 0 }}>
         <TabBar
           unselectedTintColor="#949494"
