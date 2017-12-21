@@ -26,7 +26,6 @@ const HttpClient = {
                 }
             });
     }),
-
     post: (path, formdata, query) => new Promise((resolve, reject) => {
         request
             .post(getUrl(path))
