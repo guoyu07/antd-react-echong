@@ -65,10 +65,10 @@
 
     //初始化连接对象方法
     function connect(){
-        $servername = "localhost";//
+        $servername = "10.3.135.29";//
         $username = "root";
-        $password = "root";
-        $dbname = '1000phone'; 
+        $password = "";
+        $dbname = 'petshop'; 
         //初始化连接，返回一个连接对象(包含所连接数据库的信息)
         $con = mysqli_connect($servername,$username,$password,$dbname); 
 
@@ -78,6 +78,7 @@
             echo "连接 MySQL 失败: " . mysqli_connect_error();
             return null;
         }
+         $con->set_charset('utf8');
         return $con;
     }
     
