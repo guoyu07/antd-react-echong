@@ -69,5 +69,4 @@ const mapToState = function(state){
         dataset: state.home_commonList.response
     }
 }
-
 export default connect(mapToState, home_commonListActions)(Home_commonList);

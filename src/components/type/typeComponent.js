@@ -69,7 +69,7 @@ import * as typeAction from './typeAction';
                                                 <li className='list_img'><img src="https://zos.alipayobjects.com/rmsportal/dKbkpPXKfvZzWCM.png" alt="" /></li>
                                                 <li className='list_con clearfix'>
                                                     <h3>{obj.goodname}</h3>
-                                                    <p>￥129.00</p>
+                                                    <p>￥{obj.goodprice}</p>
                                                     <span>互动：(100%好评) 售出：18</span>
                                                 </li>
                                             </ul>

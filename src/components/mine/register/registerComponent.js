@@ -9,11 +9,7 @@ import { hashHistory } from 'react-router'
 
 
 class RegisterComponent extends React.Component{
-        // componentDidMount(){
-        
-    //     $('.am-tab-bar-bar').css({display:'none'})
-       
-    // }
+
     login(event) {
         hashHistory.push('login')
     }
