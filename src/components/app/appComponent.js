@@ -18,7 +18,7 @@ class TabBarExample extends React.Component {
     $('.am-tab-bar-bar-wrap').css({display:'block'})
   }
   types(event) {
-    hashHistory.push('type');
+    hashHistory.push('cart');
     $('.am-tab-bar-bar-wrap').css({display:'block'})
     
   }
