@@ -21,8 +21,12 @@ const HttpClient = {
             .end((err, res) => {
                 if (err) {
                     reject(err);
-                } else {
-                    resolve(res.body || JSON.parse(res.text));
+                } else {              
+                    resolve(res.body||JSON.parse(res.text));
+                    // if(res.text=='fail'||res.text=='null'||res.text=='ok'){
+                    //     resolve(res);
+                    // }else{
+                    // }
                 }
             });
     }),
@@ -36,10 +40,11 @@ const HttpClient = {
                 if (err) {
                     reject(err);
                 } else {
-                    resolve(res.body);
+                    resolve(res);
                 }
             });
     })
 };
 
 export default HttpClient;
+

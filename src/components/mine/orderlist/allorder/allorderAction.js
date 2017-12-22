@@ -1,6 +1,6 @@
 export function getAllorder(_url, _params) {
     return {
-        types: ['Requested'],
+        types: ['allorder'],
         url: _url
     }
 }

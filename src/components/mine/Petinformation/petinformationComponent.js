@@ -1,6 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import * as informationAction from './informationAction'
+import { hashHistory } from 'react-router'
+import {NavBar, Icon } from 'antd-mobile';
 import './petinformation.css'
 import '../font/iconfont'
 
@@ -11,8 +13,11 @@ class Petinformation extends React.Component{
     petedit(event) {
         hashHistory.push('petedit')
     }
+    mine(event) {
+        hashHistory.push('mine')
+    }
     removepet(){
-        
+        this.props.getInformation('removepet.php', { id: thid.refs.id})
     }
     render(){
         if (!this.props.information) {
@@ -20,8 +25,17 @@ class Petinformation extends React.Component{
         }
         return (
             <div className="information">
+                <NavBar
+                    mode="light"
+                    icon={<Icon type="left" />}
+                    onLeftClick={() =>this.mine()}
+                    rightContent={[
+                        <Icon key="1" type="ellipsis" />,
+                    ]}
+                >我的宠物</NavBar>
                 {this.props.information.map(function(item,idx){
-                    return <div key={idx} className="pet" >
+                    
+                    return <div key={idx} className="pet" ref="petid" id={item.petid}>
                         <span className="nickname">{item.nickname}{function (){
                             if (item.sex == "男") {
                                 return <img src={'./src/images/nan.png'} className="sex"/>

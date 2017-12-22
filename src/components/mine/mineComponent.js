@@ -1,3 +1,4 @@
+
 import React from 'react'
 import { Button, WhiteSpace, WingBlank, Card, NavBar, Icon} from 'antd-mobile';
 import { hashHistory } from 'react-router'
@@ -119,3 +120,4 @@ export default class MineComponent extends React.Component{
         )
     }
 }
+

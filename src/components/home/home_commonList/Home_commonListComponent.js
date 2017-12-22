@@ -10,9 +10,6 @@ class Home_commonList extends React.Component{
     componentDidMount(){
         this.props.getData(this.props.url)
     }
-    componentWillUnmount(){
-        
-    }
     getKeys(item){
         var newObj = item ? Object.keys(item) : []
         return newObj
@@ -68,10 +65,8 @@ class Home_commonList extends React.Component{
     }
 }
 const mapToState = function(state){
-    
     return {
         dataset: state.home_commonList.response
     }
 }
-
 export default connect(mapToState, home_commonListActions)(Home_commonList);

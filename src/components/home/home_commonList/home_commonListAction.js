@@ -1,8 +1,8 @@
 export function getData(_url, _params){
-    console.log(_url)
     return {
-        types: ['Requested'],
+        types: ['home'],
         url: _url,
+        method:'get',
         params: _params
     }
 }

@@ -40,6 +40,7 @@ class Allorder extends React.Component {
 }
 
 const allorder = function (state){
+    console.log(state)
     return {
         allorder: state.allorder.response
     }
