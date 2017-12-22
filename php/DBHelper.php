@@ -86,7 +86,6 @@
         //初始化连接
         $conn = connect();
         //执行 sql 脚本，也叫数据库脚本，返回一个结果集（对象）
-        
         $result = mysqli_query($conn, $sql);
         //定义了一个数组
         $jsonData = array();           
