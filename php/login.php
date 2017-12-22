@@ -15,7 +15,7 @@
     }
 
     //设置编码
-    // $conn->set_charset('utf8');
+    $conn->set_charset('utf8');
 
     // 接受前端数据
     $username = isset($_GET['username']) ? $_GET['username'] :'';
@@ -27,12 +27,9 @@
     $result = $conn->query($sql);
 
     $row = $result->fetch_row();
-
-    if($row){
-        echo "ok";
-    }else{
-        echo "fail";
-    }
+  
+    echo json_encode($row, JSON_UNESCAPED_UNICODE);
+  
     // // 释放查询内存(销毁)
     $result->free();
 

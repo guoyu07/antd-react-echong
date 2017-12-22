@@ -1,18 +1,18 @@
 export default function RegisterReducer(state = {}, action){
-    var newState = JSON.parse(JSON.stringify(state));
+    var registerState = JSON.parse(JSON.stringify(state));
     switch(action.type){
         case 'beforeRequest':
-            newState.status = 0;
+            registerState.status = 0;
             break;
         case 'Requested':
-            newState.status = 1;
-            newState.response = action.response;
+            registerState.status = 1;
+            registerState.response = action.response;
             break;
         case 'requestError':
-            newState.status = -1;
-            newState.error = action.error
+            registerState.status = -1;
+            registerState.error = action.error
             break;
     }
 
-    return newState;
+    return registerState;
 }

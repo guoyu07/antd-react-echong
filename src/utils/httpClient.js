@@ -1,7 +1,7 @@
 //http://visionmedia.github.io/superagent/
 import request from 'superagent'
 
-const LOCAL_SERVER = 'http://10.3.135.29:1706/pet/antd-react-echong/php/';
+const LOCAL_SERVER = 'http://localhost:9527/';
 
 const DEV_SERVER = '';
 const PRO_SERVER = '';
@@ -21,9 +21,12 @@ const HttpClient = {
             .end((err, res) => {
                 if (err) {
                     reject(err);
-                } else {
-                    
-                    resolve(res);
+                } else {              
+                    resolve(res.body||JSON.parse(res.text));
+                    // if(res.text=='fail'||res.text=='null'||res.text=='ok'){
+                    //     resolve(res);
+                    // }else{
+                    // }
                 }
             });
     }),
@@ -38,7 +41,7 @@ const HttpClient = {
                 if (err) {
                     reject(err);
                 } else {
-                    resolve(res.body);
+                    resolve(res);
                 }
             });
     })

@@ -1,7 +1,8 @@
 import React from 'react'
 import { TabBar,SearchBar,WingBlank,WhiteSpace } from 'antd-mobile';
 import 'antd-mobile/dist/antd-mobile.css';
-import { hashHistory } from 'react-router'
+import { hashHistory } from 'react-router';
+import $ from 'jquery';
 
 class TabBarExample extends React.Component {
   constructor(props) {
@@ -13,16 +14,22 @@ class TabBarExample extends React.Component {
     };
   }
   homes(event) {
-    hashHistory.push('home')
+    hashHistory.push('home');
+    $('.am-tab-bar-bar-wrap').css({display:'block'})
   }
   types(event) {
-    hashHistory.push('type')
+    hashHistory.push('type');
+    $('.am-tab-bar-bar-wrap').css({display:'block'})
+    
   }
   carts(event) {
-    hashHistory.push('login')
+    hashHistory.push('login');
+    $('.am-tab-bar-bar-wrap').css({display:'block'})
+    
   }
   mines(event) {
-    hashHistory.push('mine')
+    hashHistory.push('register');
+    $('.am-tab-bar-bar-wrap').css({display:'block'})    
   }
   renderContent(pageText) {
     return (

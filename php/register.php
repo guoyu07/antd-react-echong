@@ -31,14 +31,17 @@
         // 释放查询内存(销毁)
         $result->free();
         // 用户名已经被占用
-        echo "fail";
-    }else{
+        // echo "fail";
+        echo json_encode($result, JSON_UNESCAPED_UNICODE);
+    }
+    // else{
         
-        if($username=='' or $password==''){
-            // 释放查询内存(销毁)
-            $result->free();
-            echo "null";
-        }else{
+    //     if($username=='' or $password==''){
+    //         // 释放查询内存(销毁)
+    //         $result->free();
+    //         // echo "null";
+    //         echo json_encode($result, JSON_UNESCAPED_UNICODE);
+        else{
             // 释放查询内存(销毁)
             $result->free();
 
@@ -49,13 +52,14 @@
             $result = $conn->query($sql);
             if ($result) {
                 // 写入成功
-                echo "ok";
+                // echo "ok";
+                echo json_encode($result, JSON_UNESCAPED_UNICODE);
             } else {
                 // 写入失败
                 echo "Error: " . $sql . "<br>" . $conn->error;
             }
         }
-    }
+    
     //关闭连接
     $conn->close();
 

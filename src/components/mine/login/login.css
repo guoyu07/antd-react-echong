@@ -1,7 +1,8 @@
 .box{height:88%;}
-.h1{margin-bottom: 2rem;padding-top: 3rem;padding-bottom:4rem;background:url('../../../images/registerbackground.jpg');color:#fff;}
+.login{margin-bottom: 2rem;height:9rem;font-size:2rem;line-height:9rem;background:url('../../../images/registerbackground.jpg');color:#fff;}
 .span{display:inline-block;width:8rem;height:3rem;font-size:1.2rem;line-height: 3rem;}
 .label{display:block;height:3rem;border-bottom:1px solid #ccc;margin-left:1rem;margin-right: 1rem;}
 .input{width:8rem;height:2rem;font-size:1rem;border:none;}
-.button{width:18rem;height:3rem;background-color:rgba(32, 241, 42, 0.904);border:none;border-radius: 0.5rem;font-size:1.2rem;color:#fff;}
-.forget{margin-right:8rem;color:rgb(108, 110, 214);}
+.button{margin-top:1rem;width:18rem;height:3rem;background-color:rgba(32, 241, 42, 0.904);border:none;border-radius: 0.5rem;font-size:1.2rem;color:#fff;}
+.forget{margin:3rem;color:rgb(108, 110, 214);font-size:1rem;}
+.ss{margin-top:1rem;}
