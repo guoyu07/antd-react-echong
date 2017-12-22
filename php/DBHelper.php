@@ -18,8 +18,7 @@
         $conn->set_charset('utf8');
         return $conn;
     }
-
-
+    
     function query_oop($sql){
         $jsonData = array();
         $conn = connect_oop();
@@ -69,6 +68,7 @@
         $username = 'root';
         $password = '';
         $database = 'petshop';
+
         //初始化连接，返回一个连接对象(包含所连接数据库的信息)
         $con = mysqli_connect($servername,$username,$password,$dbname); 
 
@@ -78,6 +78,7 @@
             echo "连接 MySQL 失败: " . mysqli_connect_error();
             return null;
         }
+        $con->set_charset('utf8');
         return $con;
     }
     

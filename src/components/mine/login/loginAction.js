@@ -1,6 +1,6 @@
 export function getLogin(_url, _params){
     return {
-        types: ['beforeRequest', 'Requested', 'requestError'],
+        types: ['login', 'Requested', 'requestError'],
         url: _url,
         method:'get',
         params: _params

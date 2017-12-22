@@ -18,17 +18,17 @@ class TabBarExample extends React.Component {
     $('.am-tab-bar-bar-wrap').css({display:'block'})
   }
   types(event) {
-    hashHistory.push('cart');
+    hashHistory.push('type');
     $('.am-tab-bar-bar-wrap').css({display:'block'})
     
   }
   carts(event) {
-    hashHistory.push('login');
+    hashHistory.push('cart');
     $('.am-tab-bar-bar-wrap').css({display:'block'})
     
   }
   mines(event) {
-    hashHistory.push('register');
+    hashHistory.push('mine');
     $('.am-tab-bar-bar-wrap').css({display:'block'})    
   }
   renderContent(pageText) {

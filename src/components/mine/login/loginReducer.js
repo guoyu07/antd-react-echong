@@ -5,7 +5,7 @@ export default function LoginReducer(state = {}, action){
         case 'beforeRequest':
             loginState.status = 0;
             break;
-        case 'Requested':
+        case 'login':
             loginState.status = 1;
             loginState.response = action.response;
             break;

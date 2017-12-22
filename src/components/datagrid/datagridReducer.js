@@ -4,7 +4,7 @@ export default function DataGridReducer(state = {}, action){
         case 'beforeRequest':
             newState.status = 0;
             break;
-        case 'Requested':
+        case 'datagrid':
             newState.status = 1;
             newState.response = action.response;
             break;

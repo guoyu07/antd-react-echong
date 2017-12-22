@@ -1,0 +1,13 @@
+.headerimg-d{width: 5rem;border-radius:50%;}
+.username{font-size:1.5rem;}
+.mine{background:url(http://localhost:3002/src/images/bgdog.jpg) no-repeat;background-size: 100% 100%;height: 9rem;}
+.vip-d{text-align:left;background:#ddd;border-radius:1rem;}
+.order{display:flex;border-bottom:1px solid #ccc;padding-top:0.9rem;padding-bottom:0.9rem;}
+.order .iconfont{font-size:1.2rem;}
+.order .icon-dingdan,.icon-qianbao{color:#58bc58;}
+.order li{width:25%;}
+.last{border-left:1px solid #ccc;}
+.mainul li{padding:0.5rem;border-bottom: #ccc solid 1px;background:#fff;}
+.mainul .mainleft{float: left;}
+.mainul .mainleft i{padding-right:0.5rem;}
+.mainul .mainright{float: right;}
