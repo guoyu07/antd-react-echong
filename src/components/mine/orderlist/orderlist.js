@@ -1,6 +1,6 @@
 import React from 'react'
 import { Tabs, WhiteSpace } from 'antd-mobile';
-import Allorder from "./alloeder/allorder";
+import Allorder from "./allorder/allorderComponent";
 export default class orderlist extends React.Component{
     render(){
         const tabs = [
@@ -13,13 +13,16 @@ export default class orderlist extends React.Component{
             <div>
                 <Tabs tabs={tabs}>
                     <div style={{ display: 'flex' }}>
-                        <Allorder />
+                        <Allorder url="allorder.php"/>
                     </div>
-                    <div style={{ display: 'flex'}}>2
+                    <div style={{ display: 'flex' }}>
+                        1
                     </div>
-                    <div style={{ display: 'flex'}}>3
+                    <div style={{ display: 'flex' }}>
+                        2
                     </div>
-                    <div style={{ display: 'flex'}}>4
+                    <div style={{ display: 'flex' }}>
+                       3
                     </div>
                 </Tabs>
             </div>

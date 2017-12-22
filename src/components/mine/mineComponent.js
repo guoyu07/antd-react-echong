@@ -9,6 +9,9 @@ export default class MineComponent extends React.Component{
     orderlist(event) {
         hashHistory.push('orderlist')
     }
+    petinformation(event){
+        hashHistory.push('petinformation')
+    }
     render(){
         return (
             <div>
@@ -78,7 +81,7 @@ export default class MineComponent extends React.Component{
                             <span className="mainleft"><i className="iconfont icon-vip"></i>vip俱乐部</span>
                             <span className="mainright iconfont icon-you"></span>
                         </li>
-                        <li className="clearfix">
+                        <li className="clearfix" onClick={this.petinformation}>
                             <span className="mainleft"><i className="iconfont icon-iospaw"></i>宠物资料</span>
                             <span className="mainright iconfont icon-you"></span>
                         </li>

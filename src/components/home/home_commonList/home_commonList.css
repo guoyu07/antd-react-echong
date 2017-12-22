@@ -1,0 +1,50 @@
+.dog_type{
+    display:flex;
+    flex-wrap:wrap;
+}
+.dog_type .dog_typeBox{
+    padding:1rem 0;
+    width: 33%;
+}
+.dog_type .dog_typeBox p{
+    font-size:1rem;
+}
+.dog_type .dog_typeBox .dog_typeImg{
+    border-radius:50%;
+    width:4rem;
+}
+.dogClothes_box{
+    padding:0 1rem;
+}
+.cxl_dog{
+    text-align:center;
+    margin-top:1.8rem;
+    margin-bottom:0.6rem;
+}
+
+.tejia_box{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-around;
+}
+.tejia_box .tejia_small{
+    width: 40%;
+    height: 13rem;
+    margin-bottom:0.4rem;
+    position:relative;  
+}
+.tejia_box .tejia_small h4{
+    text-align:left;
+    margin-bottom:0.6rem;
+}
+.tejia_box .tejia_small h4 span{
+    border:0.125rem solid red;
+    border-radius:4px;
+    color:red;
+}
+.tejia_box .tejia_small p{
+    text-align:left;
+    position:absolute;
+    bottom:0rem;
+    width: 100%;
+}

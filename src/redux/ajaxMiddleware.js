@@ -7,7 +7,6 @@ export function ajaxMiddleware(api){
             if(!url){
                 return dispatch(action)
             }
-
             api.dispatch({
                 type: 'beforeRequest'
             })
