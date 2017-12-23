@@ -11,6 +11,7 @@ import Orderlist from "../components/mine/orderlist/orderlist";
 import Petinformation from'../components/mine/Petinformation/petinformationComponent'
 import RegisterComponent from '../components/mine/register/registerComponent'
 import LoginComponent from '../components/mine/login/loginComponent'
+import HomeListComponent from '../components/home/homeList/homeListComponent'
 
 export default (
 <Route path="aa">
@@ -26,5 +27,6 @@ export default (
     <Route path="/petinformation" component={Petinformation}></Route>
     <Route path="/login" component={LoginComponent}></Route>  
     <Route path="/register" component={RegisterComponent}></Route>
+    <Route path="/homeList" component={HomeListComponent}></Route>
 </Route>
 )

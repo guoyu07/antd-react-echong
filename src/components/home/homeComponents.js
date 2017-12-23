@@ -14,7 +14,6 @@ class HomeComponent extends React.Component{
         url:'dogHome.php'
     }
     shouldComponentUpdate(newProps,newstate){
-        console.log(newProps);
         return true;
     }
     categoryFunction(event){
@@ -23,8 +22,17 @@ class HomeComponent extends React.Component{
         })
         this.props.getData(this.state.url,{category:event.title.props.children})
     }
-     componentDidMount(){
+    componentDidMount(){
         this.props.getData(this.state.url,{category:this.state.categorys})
+    }
+    flyList(a){
+        hashHistory.push({
+            pathname:'/homeList',
+            query:{
+                typeList:a,
+                categoryName:this.state.categorys
+            }
+        })
     }
     render(){
         if(!this.props.home){
@@ -79,7 +87,7 @@ class HomeComponent extends React.Component{
                     {
                         type.map(function(item,index){
                         return(
-                            <li key={index}className="dog_typeBox">
+                            <li key={index}className="dog_typeBox" onClick={this.flyList.bind(this,item.type)}>
                                 <img src={item.img} className="dog_typeImg"/>
                                 <p>{item.type}</p>
                             </li>
@@ -88,8 +96,8 @@ class HomeComponent extends React.Component{
                     }
                 </ul>
                 <div className="dogClothes_box">
-                    <img style={{width:'10rem',marginRight:'0.6rem'}} src="src/images/cxl_imgs/dogClothes1.jpg"/>
-                    <img style={{width:'10rem'}} src="src/images/cxl_imgs/dogClothes2.jpg"/>
+                    <img style={{width:'10rem',marginRight:'0.6rem'}} src="src/images/cxl_imgs/clothesxiao1.jpg"/>
+                    <img style={{width:'10rem'}} src="src/images/cxl_imgs/clothesxiao2.jpg"/>
                 </div>
                 <h3 className="cxl_dog">
                     <span style={{fontSize:'1.2rem',color:'red'}}>
@@ -118,7 +126,6 @@ class HomeComponent extends React.Component{
     }
 }
 const passToState = function(state){
-    console.log(state)
     return {
         home: state.home.response
     }

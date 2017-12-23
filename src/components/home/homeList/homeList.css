@@ -1,0 +1,37 @@
+.homeList_paixu{
+    display:flex;
+    height: 3rem;
+    line-height: 3rem;
+    font-size: 1.2rem;
+    color:#ccc;
+    border-bottom:0.05rem solid #ccc;
+}
+.homeList_paixu li{
+    flex:1;
+    text-align: center;
+}
+.homeList_box li{
+    padding:0.8rem;
+}
+.homeList_box li .homeList_text{
+    padding-left:0.3rem;
+}
+.homeList_box li .homeList_text p:nth-child(1){
+    height: 1rem;
+    margin-top:0.6rem;
+    line-height: 1rem;
+}
+.homeList_box li .homeList_text p:nth-child(2){
+    height: 1.8rem;
+    margin-top:1.2rem;
+    line-height: 1.8rem;
+    color:red;
+    font-size:1.2rem;
+}
+.homeList_box li .homeList_text p:nth-child(3){
+    margin-top:6px;
+    position:relative;
+    height: 1rem;
+    line-height: 1rem; 
+    color:grey;
+}
