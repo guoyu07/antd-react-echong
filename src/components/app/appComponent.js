@@ -1,5 +1,5 @@
 import React from 'react'
-import { TabBar,SearchBar,WingBlank,WhiteSpace } from 'antd-mobile';
+import { TabBar,WingBlank,WhiteSpace } from 'antd-mobile';
 import 'antd-mobile/dist/antd-mobile.css';
 import { hashHistory } from 'react-router';
 import $ from 'jquery';
@@ -32,16 +32,18 @@ class TabBarExample extends React.Component {
     $('.am-tab-bar-bar-wrap').css({display:'block'})    
   }
   renderContent(pageText) {
+
     return (
       <div style={{ backgroundColor: 'white', height: '100%', textAlign: 'center' }}>
-              <SearchBar placeholder="Search" maxLength={8} />
-              <WhiteSpace />
-        {this.props.children}
+             {this.props.children}
       </div>
     );
   }
 
   render() {
+
+   
+
     return (
       
       <div style={{ position: 'fixed', height: '100%', width: '100%', top: 0 }}>
@@ -52,7 +54,7 @@ class TabBarExample extends React.Component {
           hidden={this.state.hidden}
         >
           <TabBar.Item
-            title="Life"
+            title="首页"
             key="Life"
             icon={<div style={{
               width: '22px',
@@ -93,7 +95,7 @@ class TabBarExample extends React.Component {
                 background: 'url(https://gw.alipayobjects.com/zos/rmsportal/ekLecvKBnRazVLXbWOnE.svg) center center /  21px 21px no-repeat' }}
               />
             }
-            title="Koubei"
+            title="分类"
             key="Koubei"
             badge={'new'}
             selected={this.state.selectedTab === 'redTab'}
@@ -122,7 +124,7 @@ class TabBarExample extends React.Component {
                 background: 'url(https://zos.alipayobjects.com/rmsportal/IIRLrXXrFAhXVdhMWgUI.svg) center center /  21px 21px no-repeat' }}
               />
             }
-            title="Friend"
+            title="购物车"
             key="Friend"
             dot
             selected={this.state.selectedTab === 'greenTab'}
@@ -138,7 +140,7 @@ class TabBarExample extends React.Component {
           <TabBar.Item
             icon={{ uri: 'https://zos.alipayobjects.com/rmsportal/asJMfBrNqpMMlVpeInPQ.svg' }}
             selectedIcon={{ uri: 'https://zos.alipayobjects.com/rmsportal/gjpzzcrPMkhfEqgbYvmN.svg' }}
-            title="My"
+            title="我的E宠"
             key="my"
             selected={this.state.selectedTab === 'yellowTab'}
             onPress={() => {
@@ -153,6 +155,7 @@ class TabBarExample extends React.Component {
         </TabBar>
       </div>
     );
+  
   }
 }
 

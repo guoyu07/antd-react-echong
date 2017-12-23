@@ -5,5 +5,4 @@ import reducer from './rootReducer'
 
 const middleware = applyMiddleware(ajaxMiddleware)
 const store = createStore(reducer, middleware)
-
 export default store
