@@ -23,12 +23,12 @@ class TabBarExample extends React.Component {
     
   }
   carts(event) {
-    hashHistory.push('login');
+    hashHistory.push('cart');
     $('.am-tab-bar-bar-wrap').css({display:'block'})
     
   }
   mines(event) {
-    hashHistory.push('register');
+    hashHistory.push('mine');
     $('.am-tab-bar-bar-wrap').css({display:'block'})    
   }
   renderContent(pageText) {

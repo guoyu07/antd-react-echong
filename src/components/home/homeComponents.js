@@ -30,10 +30,10 @@ class HomeComponent extends React.Component{
         if(!this.props.home){
             return null
         }
-        const clothes=["外套","卫衣","马甲","毛衣","配饰","居服"]
-        const eat=["全犬","幼犬","成犬","老犬","小型犬","中大型犬"]
-        const health=["耳部","眼部","口部","足部","医疗小用品","胸部"]
-        const play=["棉质玩具","橡胶玩具","塑料玩具","发声玩具","漏食玩具","好玩玩具"]
+        const clothes=[{type:'外套',img:'src/images/cxl_imgs/clothes1.jpg'},{type:'卫衣',img:'src/images/cxl_imgs/clothes2.jpg'},{type:'马甲',img:'src/images/cxl_imgs/clothes3.jpg'},{type:'毛衣',img:'src/images/cxl_imgs/clothes4.jpg'},{type:'配饰',img:'src/images/cxl_imgs/clothes5.jpg'},{type:'居服',img:'src/images/cxl_imgs/clothes6.jpg'}]
+        const health=[{type:'耳部',img:'src/images/cxl_imgs/health1.jpg'},{type:'眼部',img:'src/images/cxl_imgs/health2.jpg'},{type:'口部',img:'src/images/cxl_imgs/health3.jpg'},{type:'根部',img:'src/images/cxl_imgs/health4.jpg'},{type:'胸部',img:'src/images/cxl_imgs/health5.jpg'},{type:'足部',img:'src/images/cxl_imgs/health6.jpg'}]
+        const eat=[{type:'全犬',img:'src/images/cxl_imgs/eat1.jpg'},{type:'幼犬',img:'src/images/cxl_imgs/eat2.jpg'},{type:'成犬',img:'src/images/cxl_imgs/eat3.jpg'},{type:'老犬',img:'src/images/cxl_imgs/eat4.jpg'},{type:'小犬',img:'src/images/cxl_imgs/eat5.jpg'},{type:'捞犬',img:'src/images/cxl_imgs/eat6.jpg'}]
+        const play=[{type:'棉质玩具',img:'src/images/cxl_imgs/toy1.jpg'},{type:'橡胶玩具',img:'src/images/cxl_imgs/toy2.jpg'},{type:'塑料玩具',img:'src/images/cxl_imgs/toy3.jpg'},{type:'发声玩具',img:'src/images/cxl_imgs/toy4.jpg'},{type:'漏食玩具',img:'src/images/cxl_imgs/toy5.jpg'},{type:'捞仔玩具',img:'src/images/cxl_imgs/toy6.jpg'}]
         var type=[];
         if(this.state.categorys=='狗狗服饰'){
             clothes.forEach(function(item){
@@ -79,9 +79,9 @@ class HomeComponent extends React.Component{
                     {
                         type.map(function(item,index){
                         return(
-                            <li key={item}className="dog_typeBox">
-                                <img src="src/images/dog_clothes_001.jpg"className="dog_typeImg"/>
-                                <p>{item}</p>
+                            <li key={index}className="dog_typeBox">
+                                <img src={item.img} className="dog_typeImg"/>
+                                <p>{item.type}</p>
                             </li>
                             )                
                         }.bind(this))
@@ -102,7 +102,7 @@ class HomeComponent extends React.Component{
                 <ul className="tejia_box">
                     {
                         this.props.home.map(function(item,index){
-                            return <li key={index} className="tejia_small">
+                            return <li key={index} className="tejia_small" data-id={item.goodId} data-category={item.category}>
                                     <img style={{width:'100%',height:'70%',marginBottom:'0.5rem'}}src={item.goodpic}/>
                                     <h4><span>4色可选</span>{item.goodname}</h4>
                                     <p><span style={{color:'red'}}>¥{item.goodprice}.00</span>
@@ -118,6 +118,7 @@ class HomeComponent extends React.Component{
     }
 }
 const passToState = function(state){
+    console.log(state)
     return {
         home: state.home.response
     }

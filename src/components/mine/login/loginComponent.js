@@ -8,11 +8,7 @@ import $ from 'jquery';
 import {cookie} from '../../../utils/jquery.cookie'
 
 class LoginComponent extends React.Component{
-    // componentDidMount(){
-        
-    //     $('.am-tab-bar-bar').css({display:'none'})
-       
-    // }
+    
     homes(event) {
         hashHistory.push('home')
     }

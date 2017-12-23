@@ -1,0 +1,6 @@
+.arrearage{color:red;text-align:right;}
+.paid{color:#58bc58;text-align:right;}
+.paid,.arrearage span{padding-right: 1rem;}
+.orderlist{text-align: left;margin-top:0.5rem;}
+.buttonpay{width: 4rem;height:1.5rem;border-radius:0.3rem;color:#fff;background:hsl(0, 91%, 50%);float:right;margin-right:1rem;}
+.pay{border-bottom:1px solid #ccc;}

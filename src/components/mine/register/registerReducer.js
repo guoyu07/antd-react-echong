@@ -4,7 +4,7 @@ export default function RegisterReducer(state = {}, action){
         case 'beforeRequest':
             registerState.status = 0;
             break;
-        case 'Requested':
+        case 'register':
             registerState.status = 1;
             registerState.response = action.response;
             break;

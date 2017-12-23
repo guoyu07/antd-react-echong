@@ -9,7 +9,7 @@ export default class CarouselComponent extends React.Component{
     componentDidMount() {
         setTimeout(() => {
           this.setState({
-            data: ['AiyWuByWklrrUDlFignR', 'TekJlZRVCjLFexlOCuWn', 'IJOtIlfsYdTyaDTRVrLI'],
+            data: ['clothesLun1', 'clothesLun2', 'clothesLun3'],
           });
         }, 100);
      } 
@@ -27,7 +27,7 @@ export default class CarouselComponent extends React.Component{
                   style={{ display: 'inline-block', width: '100%', height: this.state.imgHeight }}
                 >
                   <img
-                    src={`https://zos.alipayobjects.com/rmsportal/${ii}.png`}
+                    src={`src/images/cxl_imgs/${ii}.jpg`}
                     alt=""
                     style={{ width: '100%', verticalAlign: 'top' }}
                     onLoad={() => {

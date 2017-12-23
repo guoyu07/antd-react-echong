@@ -23,14 +23,9 @@ const HttpClient = {
                     reject(err);
                 } else {              
                     resolve(res.body||JSON.parse(res.text));
-                    // if(res.text=='fail'||res.text=='null'||res.text=='ok'){
-                    //     resolve(res);
-                    // }else{
-                    // }
                 }
             });
     }),
-
     post: (path, formdata, query) => new Promise((resolve, reject) => {
         request
             .post(getUrl(path))
