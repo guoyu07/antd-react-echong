@@ -2,7 +2,7 @@ import React from 'react'
 import { Button, WhiteSpace, WingBlank } from 'antd-mobile';
 import './register.css'
 import {connect} from 'react-redux'
-import * as registerActions from './registerAction'
+import * as registerAction from './registerAction'
 import { hashHistory } from 'react-router'
 // import $ from 'jquery';
 // import {cookie} from '../../../utils/jquery.cookie';
@@ -66,4 +66,4 @@ const registerToState = function(state){
     }
 }
 
-export default connect(registerToState, registerActions)(RegisterComponent);
+export default connect(registerToState, registerAction)(RegisterComponent);

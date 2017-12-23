@@ -71,7 +71,7 @@
         $database = 'petshop';
 
         //初始化连接，返回一个连接对象(包含所连接数据库的信息)
-        $con = mysqli_connect($servername,$username,$password,$dbname); 
+        $con = mysqli_connect($servername,$username,$password,$database); 
 
         //获取连接对象的错误信息
         if (mysqli_connect_error($con)) 
@@ -79,6 +79,7 @@
             echo "连接 MySQL 失败: " . mysqli_connect_error();
             return null;
         }
+
         $con->set_charset('utf8');
         return $con;
     }

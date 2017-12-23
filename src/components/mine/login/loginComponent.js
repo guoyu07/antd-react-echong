@@ -79,7 +79,7 @@ class LoginComponent extends React.Component{
     }
 }
 const loginToState = function(state){ 
-   
+        
     return {
         loginset: state.login.response||[],
         logintype:state.login.status,

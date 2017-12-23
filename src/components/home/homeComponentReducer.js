@@ -1,4 +1,5 @@
-export default function home_commonListReducer(state = {}, action){
+export default function homeReducer(state = {}, action){
+    
     var homeState = JSON.parse(JSON.stringify(state));
     switch(action.type){
         case 'home':
@@ -6,6 +7,5 @@ export default function home_commonListReducer(state = {}, action){
             homeState.response = action.response;
             break;
     }
-
     return homeState;
 }
