@@ -13,6 +13,9 @@ export default class MineComponent extends React.Component{
     petinformation(event){
         hashHistory.push('petinformation')
     }
+    minelogin(){
+        hashHistory.push('login')
+    }
     render(){
         return (
             <div>
@@ -25,6 +28,7 @@ export default class MineComponent extends React.Component{
                     >NavBar</NavBar>
                 </div>
                 <div>
+                    <div ><input type="button" value="请登录" className="mineLogin" onClick={this.minelogin}/></div>
                     <Card full>
                         <Card.Header className="mine"
                             title={<div><span className="username">666</span><div className="vip-d">vip俱乐部：v0</div></div>}

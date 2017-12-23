@@ -64,6 +64,7 @@
 
     //初始化连接对象方法
     function connect(){
+
         $servername = '10.3.135.29';
         $username = 'root';
         $password = '';

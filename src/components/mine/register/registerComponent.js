@@ -9,6 +9,24 @@ import { hashHistory } from 'react-router'
 
 
 class RegisterComponent extends React.Component{
+    componentWillUpdate(nextProps, nextState){
+      
+        
+        console.log(nextProps.registertype)
+        if(nextProps.registertype&&this.refs.passwordRegister1.value!=''){
+            if((nextProps.registerset)[0].aa=='null'&&nextProps.registertype==1){
+                alert('请输入正确信息')
+            }else if((nextProps.registerset[0]).aa=='fail'&&nextProps.registertype==1){
+                alert('账户已存在')
+            }else if((nextProps.registerset)[0].aa=='ok'&&nextProps.registertype==1){
+                alert('注册成功')
+                hashHistory.push('login')
+            }
+        }else 
+        if(this.refs.usernameRegister.value=''){
+            return false;
+        }
+    }
 
     login(event) {
         hashHistory.push('login')
@@ -17,11 +35,18 @@ class RegisterComponent extends React.Component{
         url:'register.php'
     }
     register(){
-        this.props.getRegister(this.state.url, {username:this.refs.usernameRegister.value,password:this.refs.passwordRegister.value})
+        if(this.refs.passwordRegister.value!=this.refs.passwordRegister1.value){
+            
+            alert('两次密码不一样');
+            return false;
+        }else{
+            this.props.getRegister(this.state.url, {username:this.refs.usernameRegister.value,password:this.refs.passwordRegister.value});
+        }
     }
     render(){
         return (
             <div className="box1">
+                <div className="top"><span className="goback" onClick={this.props.router.goBack}>&lt;</span></div>
                 <h1 className="register">用户注册</h1>
                 <label className="label1"><span className="span1">用户名</span><input  type="text" placeholder="请输入用户名" className="input1" ref="usernameRegister"/></label><br/>
                 <label className="label1"><span className="span1">密码</span><input  type="password" placeholder="请输入密码" className="input1" ref="passwordRegister"/></label><br/>
@@ -33,9 +58,11 @@ class RegisterComponent extends React.Component{
 
 }
 const registerToState = function(state){ 
-      
+     
     return {
-        registerset: state.register.response     
+        registerset: state.register.response,
+        registertype:state.register.status,
+    
     }
 }
 
