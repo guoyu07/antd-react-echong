@@ -5,6 +5,7 @@ import allorder from "../components/mine/orderlist/allorder/allorderReducer";
 import petinfomation from "../components/mine/Petinformation/informationReducer"
 import register from '../components/mine/register/registerReducer'
 import login from '../components/mine/login/loginReducer'
+
 export default combineReducers({
-    datagrid, home_commonList, allorder,petinfomation,register,login,home_commonList
+    datagrid, home_commonList, allorder, petinfomation, register, login
 })

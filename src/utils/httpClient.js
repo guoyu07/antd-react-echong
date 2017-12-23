@@ -12,7 +12,6 @@ function getUrl(path) {
     }
     return `${LOCAL_SERVER}${path}`;
 }
-
 const HttpClient = {
     get: (path, query) => new Promise((resolve, reject) => {
         var req = request
