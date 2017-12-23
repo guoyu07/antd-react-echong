@@ -16,12 +16,15 @@ class HomeListComponent extends React.Component{
         hashHistory.push('/home')
     }
     componentDidMount(){
-        $('.homeList_paixu').on('click','span',function(){
-            $(this).css({color:'red'}).siblngs().css({color:'#ccc'});
-        })
         var categoryName=this.props.location.query.categoryName;
         var typeList=this.props.location.query.typeList;
          this.props.getHomeList(this.state.url,{category:categoryName,typeList:typeList})
+         $('.homeList_paixu').children().eq(0).css({color:'red'})
+        $('.homeList_paixu').on('click','li',function(){
+            $(this).css({color:'red'}).siblings('li').css({color:'#ccc'});
+            $('.homeNone').children('span').css({color:'#ccc'})
+
+        })
     }
     render(){
         if(!this.props.homeList){
@@ -36,7 +39,7 @@ class HomeListComponent extends React.Component{
                 <ul className="homeList_paixu">
                     <li>默认排序</li>
                     <li>销量</li>
-                    <li style={{display:'flex',justifyContent:'spaceAround'}}>价格<span className="icon-fa-angle-up iconfont"></span><span className="icon-fa-angle-down iconfont"></span></li>
+                    <li className="homeNone"style={{display:'flex',justifyContent:'spaceAround'}}>价格<span className="icon-fa-angle-up iconfont"></span><span className="icon-fa-angle-down iconfont"></span></li>
                     <li>筛选<span className="icon-iospaw iconfont"></span></li>
                 </ul>
                 <p className>{this.props.location.query.typeList}</p>
