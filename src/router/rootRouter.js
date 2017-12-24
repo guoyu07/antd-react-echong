@@ -12,6 +12,8 @@ import Petinformation from'../components/mine/Petinformation/petinformationCompo
 import RegisterComponent from '../components/mine/register/registerComponent'
 import LoginComponent from '../components/mine/login/loginComponent'
 import HomeListComponent from '../components/home/homeList/homeListComponent'
+import HomeSearchComponent from '../components/home/homeSearch/homeSearchComponent'
+
 
 export default (
 <Route path="aa">
@@ -28,5 +30,6 @@ export default (
     <Route path="/login" component={LoginComponent}></Route>  
     <Route path="/register" component={RegisterComponent}></Route>
     <Route path="/homeList" component={HomeListComponent}></Route>
+    <Route path="/homeSearch" component={HomeSearchComponent}></Route>
 </Route>
 )

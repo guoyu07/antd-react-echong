@@ -15,6 +15,21 @@ class HomeListComponent extends React.Component{
     flyHome(){
         hashHistory.push('/home')
     }
+    xiaoliang(){
+        var categoryName=this.props.location.query.categoryName;
+        var typeList=this.props.location.query.typeList;
+        this.props.getHomeList(this.state.url,{category:categoryName,typeList:typeList,xiaoliang:'xiaoliang'})
+    }
+    priceup(){
+        var categoryName=this.props.location.query.categoryName;
+        var typeList=this.props.location.query.typeList;
+        this.props.getHomeList(this.state.url,{category:categoryName,typeList:typeList,price:'up'})
+    }
+    pricedown(){
+        var categoryName=this.props.location.query.categoryName;
+        var typeList=this.props.location.query.typeList;
+        this.props.getHomeList(this.state.url,{category:categoryName,typeList:typeList,price:'down'})
+    }
     componentDidMount(){
         var categoryName=this.props.location.query.categoryName;
         var typeList=this.props.location.query.typeList;
@@ -23,7 +38,16 @@ class HomeListComponent extends React.Component{
         $('.homeList_paixu').on('click','li',function(){
             $(this).css({color:'red'}).siblings('li').css({color:'#ccc'});
             $('.homeNone').children('span').css({color:'#ccc'})
-
+        })
+    }
+    flyDetail(a){
+        var categoryName1=this.props.location.query.categoryName;
+         hashHistory.push({
+            pathname:'/shoplist',
+            query:{
+                id:a,
+                title:categoryName1
+            }
         })
     }
     render(){
@@ -38,15 +62,15 @@ class HomeListComponent extends React.Component{
                 </h1>
                 <ul className="homeList_paixu">
                     <li>默认排序</li>
-                    <li>销量</li>
-                    <li className="homeNone"style={{display:'flex',justifyContent:'spaceAround'}}>价格<span className="icon-fa-angle-up iconfont"></span><span className="icon-fa-angle-down iconfont"></span></li>
+                    <li onClick={this.xiaoliang.bind(this)}>销量</li>
+                    <li className="homeNone"style={{display:'flex',justifyContent:'spaceAround'}}>价格<span className="icon-fa-angle-up iconfont" onClick={this.priceup.bind(this)}></span><span className="icon-fa-angle-down iconfont" onClick={this.pricedown.bind(this)}></span></li>
                     <li>筛选<span className="icon-iospaw iconfont"></span></li>
                 </ul>
-                <p className>{this.props.location.query.typeList}</p>
+                <p className="homeList_type">{this.props.location.query.typeList}</p>
                 <ul className="homeList_box">
                     {
                         this.props.homeList.map(function(item,index){
-                            return <li key={index} style={{display:'flex'}}>
+                            return <li key={index} style={{display:'flex'}} data-id={item.goodId} onClick={this.flyDetail.bind(this,item.goodId)}>
                                     <div style={{flex:'30%'}}><img src={item.goodpic}/></div>
                                     <div style={{flex:'70%'}} className="homeList_text">
                                         <p>{item.gooddetail}</p>
@@ -56,20 +80,9 @@ class HomeListComponent extends React.Component{
                                             <span className="icon-liwu iconfont fr"style={{color:'red'}}>买</span>
                                         </p>
                                     </div>
-                    </li>
-                        })
+                                </li>
+                        }.bind(this))
                     }
-                    <li style={{display:'flex'}}>
-                        <div style={{flex:'30%'}}><img src="./src/images/dog_food_001.jpg"/></div>
-                        <div style={{flex:'70%'}} className="homeList_text">
-                            <p>2017年新款按时按时按时按时按时</p>
-                            <p>¥18.00</p>
-                            <p>互动:(100%好评) 售出:
-                                <span style={{color:'black'}}>12</span>
-                                <span className="icon-liwu iconfont fr"style={{color:'red'}}>买</span>
-                            </p>
-                        </div>
-                    </li>
                 </ul>
                 <p>{this.props.location.query.categoryName}</p>
                 <p>{this.props.location.query.typeList}</p>

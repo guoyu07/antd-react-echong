@@ -34,12 +34,23 @@ class HomeComponent extends React.Component{
             }
         })
     }
+    searchList(){
+        var searchValue=this.refs.searchText.state.value;
+        console.log(this.refs.searchText.state.value)
+        hashHistory.push({
+            pathname:'/homeSearch',
+            query:{
+                search:searchValue
+            }
+        })
+
+    }
     render(){
         if(!this.props.home){
             return null
         }
         const clothes=[{type:'外套',img:'src/images/cxl_imgs/clothes1.jpg'},{type:'卫衣',img:'src/images/cxl_imgs/clothes2.jpg'},{type:'马甲',img:'src/images/cxl_imgs/clothes3.jpg'},{type:'毛衣',img:'src/images/cxl_imgs/clothes4.jpg'},{type:'配饰',img:'src/images/cxl_imgs/clothes5.jpg'},{type:'居服',img:'src/images/cxl_imgs/clothes6.jpg'}]
-        const health=[{type:'耳部',img:'src/images/cxl_imgs/health1.jpg'},{type:'眼部',img:'src/images/cxl_imgs/health2.jpg'},{type:'口部',img:'src/images/cxl_imgs/health3.jpg'},{type:'根部',img:'src/images/cxl_imgs/health4.jpg'},{type:'胸部',img:'src/images/cxl_imgs/health5.jpg'},{type:'足部',img:'src/images/cxl_imgs/health6.jpg'}]
+        const health=[{type:'罐头',img:'src/images/cxl_imgs/health1.jpg'},{type:'餐盒',img:'src/images/cxl_imgs/health2.jpg'},{type:'妙鲜包',img:'src/images/cxl_imgs/health3.jpg'},{type:'补丁',img:'src/images/cxl_imgs/health4.jpg'},{type:'奶酪小吃',img:'src/images/cxl_imgs/health5.jpg'},{type:'冰淇淋',img:'src/images/cxl_imgs/health6.jpg'}]
         const eat=[{type:'全犬',img:'src/images/cxl_imgs/eat1.jpg'},{type:'幼犬',img:'src/images/cxl_imgs/eat2.jpg'},{type:'成犬',img:'src/images/cxl_imgs/eat3.jpg'},{type:'老犬',img:'src/images/cxl_imgs/eat4.jpg'},{type:'小犬',img:'src/images/cxl_imgs/eat5.jpg'},{type:'捞犬',img:'src/images/cxl_imgs/eat6.jpg'}]
         const play=[{type:'棉质玩具',img:'src/images/cxl_imgs/toy1.jpg'},{type:'橡胶玩具',img:'src/images/cxl_imgs/toy2.jpg'},{type:'塑料玩具',img:'src/images/cxl_imgs/toy3.jpg'},{type:'发声玩具',img:'src/images/cxl_imgs/toy4.jpg'},{type:'漏食玩具',img:'src/images/cxl_imgs/toy5.jpg'},{type:'捞仔玩具',img:'src/images/cxl_imgs/toy6.jpg'}]
         var type=[];
@@ -48,32 +59,33 @@ class HomeComponent extends React.Component{
                 type.push(item)
             }) 
         }
-        if(this.state.categorys=='狗粮'){
+        if(this.state.categorys=='狗狗食物'){
             eat.forEach(function(item){
                 type.push(item)
             }) 
         }
-        if(this.state.categorys=='保健'){
+        if(this.state.categorys=='狗狗窝垫'){
             health.forEach(function(item){
                 type.push(item)
             }) 
         }
-        if(this.state.categorys=='玩具'){
+        if(this.state.categorys=='狗狗玩具'){
             play.forEach(function(item){
                 type.push(item)
             }) 
         }
       const tabs = [
             { title: <Badge>狗狗服饰</Badge> },
-            { title: <Badge>狗粮</Badge> },
-            { title: <Badge>保健</Badge> },
-            { title: <Badge>玩具</Badge> },
+            { title: <Badge>狗狗食物</Badge> },
+            { title: <Badge>狗狗窝垫</Badge> },
+            { title: <Badge>狗狗玩具</Badge> },
           ];
         return (
           <div>
               <h1 style={{display:'flex'}}>
               <p style={{fontSize:'1.2rem',lineHeight:'100%',marginTop:'0.75rem'}}>狗站 |</p>
-              <SearchBar style={{width:'80%'}}placeholder="Search"  />
+              <SearchBar ref="searchText"style={{width:'70%'}}placeholder="Search" />
+              <span onClick={this.searchList.bind(this)} style={{color:'skyBlue',marginTop:'0.8rem'}}>搜索一波</span>
             </h1>
              <Tabs tabs={tabs}
                 swipeable={false}

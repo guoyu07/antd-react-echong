@@ -9,7 +9,8 @@ import login from '../components/mine/login/loginReducer'
 
 import home from '../components/home/homeComponentReducer'
 import homeList from '../components/home/homeList/homeListComponentReducer'
+import homeSearch from '../components/home/homeSearch/homeSearchReducer'
 
 export default combineReducers({
-    datagrid, home, allorder,petinfomation,register,login,typeReducer,shopReducer,homeList
+    datagrid, home, allorder,petinfomation,register,login,typeReducer,shopReducer,homeList,homeSearch
 })
