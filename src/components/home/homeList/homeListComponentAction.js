@@ -1,8 +1,9 @@
 export function getHomeList(_url, _params){
     return {
-        types: ['getHomeList'],
+        types: ['getHomeList','aa'],
         url: _url,
-        params: _params,
-        method:'get'
+        method:'get',
+        params: _params
+        
     }
 }

@@ -1,6 +1,8 @@
 .box1{height:88%;}
+.top{height:4rem;}
+.goback{position:absolute;top:1.5rem;left:1rem;display:block;font-size:2rem;}
 .register{margin-bottom: 2rem;height:9rem;font-size:2rem;line-height:9rem;background:url('../../../images/registerbackground.jpg');color:#fff;}
 .span1{display:inline-block;width:8rem;height:2rem;font-size:1.2rem;line-height: 3rem;}
 .label1{display:block;height:3rem;border-bottom:1px solid #ccc;margin-left:1rem;margin-right: 1rem;}
-.input1{width:8rem;height:2rem;font-size:1rem;border:none;}
-.button1{width:18rem;height:3rem;background-color:rgba(226, 46, 14, 0.904);border:none;border-radius: 0.5rem;font-size:1.2rem;color:#fff;}
+.input1{width:8rem;height:2rem;font-size:1rem;}
+.button1{width:18rem;height:3rem;background-color:rgba(226, 46, 14, 0.904);border-radius: 0.5rem;font-size:1.2rem;color:#fff;}

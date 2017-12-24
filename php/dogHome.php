@@ -3,9 +3,8 @@
 
     include "DBHelper.php";
 
-    $paramsId=isset($_GET['paramsId'])?$_GET['paramsId']:'';
+
     $category=isset($_GET['category'])?$_GET['category']:'';
-    $paramsId=intval($paramsId);
     if($category=="狗狗服饰"){
         $sql = "select * from dogclothes";
     }

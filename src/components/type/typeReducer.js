@@ -3,17 +3,12 @@ export default function DataGridReducer(state = {}, action){
 
     switch(action.type){
 
-        case 'beforeRequest':
-            newState.status = 0;
-            break;
-        case 'Requested':
+
+        case 'typeRequested':
             newState.status = 1;
             newState.response = action.response;
             break;
-        case 'requestError':
-            newState.status = -1;
-            newState.error = action.error
-            break;
+
     }
     //console.log(newState)
     return newState;

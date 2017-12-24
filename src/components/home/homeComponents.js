@@ -13,17 +13,14 @@ class HomeComponent extends React.Component{
         categorys:'狗狗服饰',
         url:'dogHome.php'
     }
-    shouldComponentUpdate(newProps,newstate){
-        return true;
-    }
     categoryFunction(event){
         this.setState({
             categorys:event.title.props.children
         })
-        this.props.getData(this.state.url,{category:event.title.props.children})
+        this.props.getHome(this.state.url,{category:event.title.props.children})
     }
     componentDidMount(){
-        this.props.getData(this.state.url,{category:this.state.categorys})
+        this.props.getHome(this.state.url,{category:this.state.categorys})
     }
     flyList(a){
         hashHistory.push({
