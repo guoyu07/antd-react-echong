@@ -1,8 +1,10 @@
 import http from '../utils/httpClient'
 
 export function ajaxMiddleware(api){
+
     return function(dispatch){
         return function(action){
+           
             const {types, url, method, params = {}} = action
             if(!url){
                 return dispatch(action)
@@ -12,6 +14,7 @@ export function ajaxMiddleware(api){
             api.dispatch({
                 type: b
             })
+            
             if(url){
                 http[method](url, params).then(res => {
                     api.dispatch({

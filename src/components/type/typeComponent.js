@@ -30,7 +30,7 @@ import * as typeAction from './typeAction';
             return null
         }
 
-      console.log(this.props)
+     
         const thisr = this.props  
         const tabs = [
               { title: '狗狗服饰' },
@@ -64,7 +64,7 @@ import * as typeAction from './typeAction';
                             
                             {
                                 thisr.dataset.map(function(obj, index){
-                                    console.log(obj,index)
+                                    
                                      return <ul key={index} className='list_zx clearfix'>
                                                 <li className='list_img'><img src="https://zos.alipayobjects.com/rmsportal/dKbkpPXKfvZzWCM.png" alt="" /></li>
                                                 <li className='list_con clearfix'>

@@ -2,10 +2,10 @@ export default function LoginReducer(state = {}, action){
     var loginState = JSON.parse(JSON.stringify(state));
 
     switch(action.type){
-        case 'loginRequested':
-            loginState.status = 0;
-        break;
         case 'loginbeforeRequest':
+        loginState.status = 0;
+        break;
+        case 'loginRequested':
             loginState.status = 1;
             loginState.response = action.response;
             break;

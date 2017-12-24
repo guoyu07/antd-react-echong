@@ -5,7 +5,7 @@ import {connect} from 'react-redux';
 import * as loginAction from './loginAction';
 import { hashHistory } from 'react-router';
 import $ from 'jquery';
-import {cookie} from '../../../utils/jquery.cookie'
+
 
 class LoginComponent extends React.Component{
     state = {
@@ -14,7 +14,9 @@ class LoginComponent extends React.Component{
     }
 
     componentWillUpdate(nextProps, nextState){
-
+            // console.log(nexProps.logintype)
+            // console.log(nexProps.loginset)
+            
         if(nextProps.logintype){
 
             if(nextProps.logintype == 0){
@@ -23,7 +25,6 @@ class LoginComponent extends React.Component{
                 if(this.refs.usernameLogin.value==''){
                     return false;
                 }else{
-
                     nextState.show = false;
                     if(nextProps.loginset.length){
                         hashHistory.push('home')
@@ -79,7 +80,7 @@ class LoginComponent extends React.Component{
     }
 }
 const loginToState = function(state){ 
-        
+        console.log(state)
     return {
         loginset: state.login.response||[],
         logintype:state.login.status,
