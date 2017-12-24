@@ -41,5 +41,4 @@ const loginToState = function(state){
     }
     
 }
-
 export default connect(loginToState, loginAction)(LoginComponent);

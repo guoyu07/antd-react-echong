@@ -1,0 +1,50 @@
+.am-search{
+    background: #fff;
+    .am-search-input{
+        border: 0.05rem  solid #ccc;
+    }
+}
+
+ul,li{
+    list-style:none;
+    margin: 0;
+    padding: 0;
+}
+.clearfix:after{
+    content:"";
+    display:block;
+    clear:both;
+    overflow:hidden;
+    height:0;
+    visibility:hidden;
+    zoom:1;
+} 
+
+
+    .list_zx{
+        margin-top: 1rem;
+        li{
+            &.list_img{
+                vertical-align: middle;
+                img{
+                    width: 5rem;
+                }
+
+            }
+            &.list_con{
+                width:12rem;
+                text-align:left;
+                span{
+                    font-size: 0.4rem;
+                    color: #ccc;
+                    padding-right: 0.4rem;
+                }
+                
+            }
+            float:left;
+            width:6rem;
+            
+        }
+       
+
+    }

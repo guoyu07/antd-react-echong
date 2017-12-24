@@ -13,7 +13,6 @@ class PeteditComponent extends React.Component {
         hashHistory.push('petinformation')
     }
     petedits(){
-        console.log(this.refs.state.value)
         this.props.peteditAction('petedit.php', { petid: this.props.location.query.petid, nickname: this.refs.nickname.value, species: this.refs.species.value, state: this.refs.state.value, sex: this.refs.sexx.value, datebirth: this.refs.datebirth.value})
     }
     render(){

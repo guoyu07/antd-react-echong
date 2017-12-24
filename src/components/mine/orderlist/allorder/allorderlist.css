@@ -1,6 +1,11 @@
 .arrearage{color:red;text-align:right;}
 .paid{color:#58bc58;text-align:right;}
-.paid,.arrearage span{padding-right: 1rem;}
-.orderlist{text-align: left;margin-top:0.5rem;}
+.paid,.arrearage span{padding-right: 0.5rem;}
+.orderlist{text-align: left;margin-top:0.6rem;background: #fff;}
 .buttonpay{width: 4rem;height:1.5rem;border-radius:0.3rem;color:#fff;background:hsl(0, 91%, 50%);float:right;margin-right:1rem;}
 .pay{border-bottom:1px solid #ccc;}
+.allorder{background: rgb(248, 248, 248);}
+.imglist{display:inline-block;width: 5rem;margin: 1rem;border-radius:50%;}
+.orderlisttop{height:2.5rem;display:flex;justify-content:space-between;}
+.transaction,.copewith{margin:0.5rem;line-height:1.5rem;}
+.transaction{color: #999}
