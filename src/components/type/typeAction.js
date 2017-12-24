@@ -1,6 +1,6 @@
-export function getData(_url, _params){
+export function getType(_url, _params){
     return {
-        types: ['Requested'],
+        types: ['typeRequested','aa'],
         url: _url,
         method:'get',
         params: _params,

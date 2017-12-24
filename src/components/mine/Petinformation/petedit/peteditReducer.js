@@ -1,15 +1,10 @@
-export default function DataGridReducer(state = {}, action){
+export default function getPetedit(state = {}, action) {
     var newState = JSON.parse(JSON.stringify(state));
-
-    switch(action.type){
-
-
-        case 'typeRequested':
+    switch (action.type) {
+        case 'peteditAction':
             newState.status = 1;
             newState.response = action.response;
             break;
-
     }
-    //console.log(newState)
     return newState;
 }

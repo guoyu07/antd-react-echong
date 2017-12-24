@@ -12,8 +12,8 @@ import * as typeAction from './typeAction';
         title:'狗狗服饰'
     }
     componentDidMount(){
-
-        this.props.getData(this.state.url, {title:this.state.title})
+        console.log(666);
+        this.props.getType(this.state.url, {title:this.state.title})
 
     }
     renderContent = tab =>
@@ -29,8 +29,6 @@ import * as typeAction from './typeAction';
       if(!this.props.dataset){
             return null
         }
-
-      console.log(this.props)
         const thisr = this.props  
         const tabs = [
               { title: '狗狗服饰' },
@@ -55,7 +53,7 @@ import * as typeAction from './typeAction';
                           onChange={(e,r,t) => {
                             var title = e.title
                               //console.log(title)
-                              this.props.getData(this.state.url, {title:title})
+                              this.props.getType(this.state.url, {title:title})
 
                               //console.log(thisr.dataset)
                             }}
@@ -64,7 +62,7 @@ import * as typeAction from './typeAction';
                             
                             {
                                 thisr.dataset.map(function(obj, index){
-                                    console.log(obj,index)
+                                    
                                      return <ul key={index} className='list_zx clearfix'>
                                                 <li className='list_img'><img src="https://zos.alipayobjects.com/rmsportal/dKbkpPXKfvZzWCM.png" alt="" /></li>
                                                 <li className='list_con clearfix'>

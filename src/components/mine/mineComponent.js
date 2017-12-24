@@ -13,6 +13,12 @@ export default class MineComponent extends React.Component{
     petinformation(event){
         hashHistory.push('petinformation')
     }
+    ChangePwdComponent(event) {
+        hashHistory.push('ChangePwdComponent')
+    }
+    minelogin(){
+        hashHistory.push('login')
+    }
     render(){
         return (
             <div>
@@ -22,9 +28,10 @@ export default class MineComponent extends React.Component{
                         rightContent={[
                             <Icon key="1" type="ellipsis" />,
                         ]}
-                    >NavBar</NavBar>
+                    >我的E宠</NavBar>
                 </div>
                 <div>
+                    <div ><input type="button" value="请登录" className="mineLogin" onClick={this.minelogin}/></div>
                     <Card full>
                         <Card.Header className="mine"
                             title={<div><span className="username">666</span><div className="vip-d">vip俱乐部：v0</div></div>}
@@ -100,6 +107,10 @@ export default class MineComponent extends React.Component{
                         </li>
                         <li className="clearfix">
                             <span className="mainleft"><i className="iconfont icon-shoucang"></i>我的收藏</span>
+                            <span className="mainright iconfont icon-you"></span>
+                        </li>
+                        <li className="clearfix" onClick={this.ChangePwdComponent}>
+                            <span className="mainleft"><i className="iconfont icon-xiugaimima"></i>修改登录密码</span>
                             <span className="mainright iconfont icon-you"></span>
                         </li>
                         <li className="clearfix">
