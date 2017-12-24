@@ -2,6 +2,7 @@ import React from 'react'
 import { Button, WhiteSpace, WingBlank } from 'antd-mobile';
 import * as cartAction from './cartAction'
 import './cart.css'
+import $ from 'jquery';
 import {connect} from 'react-redux';
 import { hashHistory } from 'react-router';
 
@@ -21,9 +22,8 @@ class CartComponent extends React.Component{
         
         if(nextProps.carset==[]){
             nextState.show=true;
-            // document.getElementsByClassName('.cc').style.display="block";         
         }else{
-            // document.getElementsByClassName('.cc').style.display="none";               
+            console.log(this.refs.aa)
             nextState.show=false;
         }
       
@@ -46,7 +46,7 @@ class CartComponent extends React.Component{
             return (
                 <div>
                     <h1 className="cart">购物车</h1>
-                    <h2 className="cc" ref="aa"><span className="ss">区逛逛</span><span className="ss">我的收藏</span></h2>
+                    <h2 className="cc" ref="cc"><span className="ss">区逛逛</span><span className="ss">我的收藏</span></h2>
                     <h1 className="xuanze"><input type="checkbox" className="xz"/></h1>
                     <ul >
                         {
