@@ -29,8 +29,6 @@ import * as typeAction from './typeAction';
       if(!this.props.dataset){
             return null
         }
-
-     
         const thisr = this.props  
         const tabs = [
               { title: '狗狗服饰' },

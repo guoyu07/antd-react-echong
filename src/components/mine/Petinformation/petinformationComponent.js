@@ -10,17 +10,20 @@ class Petinformation extends React.Component{
     componentDidMount() {
         this.props.getInformation('petinformation.php')
     }
-    petedit(event) {
+    petedit(event){
         hashHistory.push('petedit')
     }
     mine(event) {
         hashHistory.push('mine')
     }
-    removepet(){
-        this.props.getInformation('removepet.php', { id: thid.refs.id})
+    peteditcompomnent(id) {
+        hashHistory.push({ pathname: 'PeteditComponent', query: { petid: id}})
+    }
+    removepet(petid){
+        this.props.getInformation('removepet.php',{id:petid})
     }
     render(){
-        if (!this.props.information) {
+        if (!this.props.information){
             return null
         }
         return (
@@ -34,7 +37,6 @@ class Petinformation extends React.Component{
                     ]}
                 >我的宠物</NavBar>
                 {this.props.information.map(function(item,idx){
-                    
                     return <div key={idx} className="pet" ref="petid" id={item.petid}>
                         <span className="nickname">{item.nickname}{function (){
                             if (item.sex == "男") {
@@ -43,7 +45,7 @@ class Petinformation extends React.Component{
                                 return <img src={'./src/images/women.png'} className="sex" />
                             }
                         }()}<a className="species">{'('+item.species+')'}</a></span>
-                        <div className="operation"><span className="edit"><a className="icon-pingjia1 iconfont"></a>编辑</span><span onClick={this.removepet}><a className="icon-shanchu iconfont"/>删除</span></div>
+                        <div className="operation"><span className="edit" onClick={this.peteditcompomnent.bind(this,item.petid)}><a className="icon-pingjia1 iconfont"></a>编辑</span><span onClick={this.removepet.bind(this,item.petid)}><a className="icon-shanchu iconfont"/>删除</span></div>
                     </div>
                 }.bind(this))}
             </div>
@@ -51,6 +53,7 @@ class Petinformation extends React.Component{
     }
 }
 const information = function (state) {
+    console.log(state)
     return {
         information:state.petinfomation.response
     }

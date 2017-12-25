@@ -1,7 +1,8 @@
 export function getInformation(_url, _params) {
     return {
-        types: ['getInformation'],
+        types: ['getInformation','aa'],
         url: _url,
-        method:'get'
+        method:'get',
+        params: _params
     }
 }

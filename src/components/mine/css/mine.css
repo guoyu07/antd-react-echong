@@ -7,8 +7,11 @@
 .order .icon-dingdan,.icon-qianbao{color:#58bc58;}
 .order li{width:25%;}
 .last{border-left:1px solid #ccc;}
+.mainul .outbox{background:red;}
 .mainul li{padding:0.5rem;border-bottom: #ccc solid 1px;background:#fff;}
 .mainul .mainleft{float: left;}
 .mainul .mainleft i{padding-right:0.5rem;}
 .mainul .mainright{float: right;}
-.mineLogin{position:absolute;top:9rem;width:8rem;height:3rem;background-color:rgb(224, 188, 90);z-index:999;font-size:1.5rem;color:#fff;}
+.mineLogin{position:absolute;top:4rem;left:6rem;width:4rem;height:2rem;background-color:rgb(224, 188, 90);z-index:999;font-size:1rem;color:#fff;}
+.mineLoginbaba{position:relative;}
+.mainul .outbox .outAccount{margin-left:45%;color:#fff;}

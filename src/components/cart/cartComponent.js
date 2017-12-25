@@ -11,26 +11,38 @@ class CartComponent extends React.Component{
         url:'cart.php',
         show:false
     }
-    componentWillUnmount(){
-
+    home(){
+        hashHistory.push('home')
+    }
+    componentWillMount(){
+     
     }
     componentDidMount(){
+      
+        
         var storage = window.localStorage;       
-        this.props.getCart(this.state.url,{username:storage.username})       
+        if(storage.username){
+            this.props.getCart(this.state.url,{username:storage.username})  
+            console.log(this.refs);     
+            // this.refs.cc.style.display="none";
+        }else{
+            // this.refs.cc.style.display="block";
+        }
     }
     componentWillUpdate(nextProps, nextState){
         
         if(nextProps.carset==[]){
-            nextState.show=true;
+            
         }else{
             console.log(this.refs.aa)
-            nextState.show=false;
+          
         }
       
     }
-    jia(){
-        this.refs.goodnub.innerText++;
-        this.refs.price1.value+=this.refs.price1.value*1
+    jia(a){
+        // this.refs.goodnub.innerText++;
+        // this.refs.allMoney.innerText+=1;
+        console.log(a)
     }
     jian(){
         this.refs.goodnub.innerText--
@@ -40,15 +52,24 @@ class CartComponent extends React.Component{
         }     
     }
     render(){
-        if(!this.props.cartset){
-            return null
+        if(!this.props.cartset||this.props.cartset.length==0){
+            return(
+                <div>
+                    <h1 className="cart">购物车</h1>
+                    <h2 className="cc" ref="cc"><span className="ss" onClick={this.home}>去逛逛</span><span className="ss">我的收藏</span></h2>
+                    <div className="checkout">
+                        <input type="checkbox" className="allselect xz"/>
+                        <span>总额:</span><span className="allprice"ref="allMoney"></span>
+                        <input type="button" value="去结账" className="enter"/>
+                    </div> 
+                </div>    
+            )
         }
             return (
                 <div>
                     <h1 className="cart">购物车</h1>
-                    <h2 className="cc" ref="cc"><span className="ss">区逛逛</span><span className="ss">我的收藏</span></h2>
                     <h1 className="xuanze"><input type="checkbox" className="xz"/></h1>
-                    <ul >
+                    <ul className="goodList">
                         {
                             this.props.cartset.map(function(item,index){
                                 return      <li className="goodlist" key={index}>
@@ -63,21 +84,21 @@ class CartComponent extends React.Component{
                                                         <span>L号&nbsp;</span>
                                                         <span>{item.goodcolor}&nbsp;</span><br/>
                                                         <span className="goodbiaozi">￥</span>
-                                                        <input className="goodprice" value="58.00"ref={item.orderid}  disabled="disabled"/>
+                                                        <input className="goodprice" value={item.goodprice}  disabled="disabled"/>
                                                     </div>
                                                 </h3>
                                                 <h4 className="selectnub">
-                                                    <span className="jian">-</span>
-                                                    <span className="nub" ref="goodnub">1</span>
-                                                    <span className="jia">+</span>
+                                                    <span className="jian" onClick={this.jian.bind(this,item)}>-</span>
+                                                    <span className="nub" ref="goodnub">{item.goodnumber}</span>
+                                                    <span className="jia" onClick={this.jia.bind(this)}>+</span>
                                                 </h4>
                                             </li>
-                            })
+                            }.bind(this))
                         }
                     </ul>
                     <div className="checkout">
                         <input type="checkbox" className="allselect xz"/>
-                        <span>总额:</span><span className="allprice">￥1333</span>
+                        <span>总额:</span><span className="allprice"ref="allMoney"></span>
                         <input type="button" value="去结账" className="enter"/>
                     </div>    
                 </div>
