@@ -1,0 +1,52 @@
+.hotSearch{
+    margin-top:1.8rem;
+    display:flex;
+    flex-wrap: wrap;
+    padding-left:2rem;
+}
+.hotSearch li{
+    text-align: center;
+    margin:0.8rem 0.4rem;
+}
+.hotSearch li span{
+    padding:0.3rem;
+    border:1px solid #ccc;
+    font-size:1.2rem;
+}
+.homeList_box li{
+    padding:0.8rem;
+}
+.homeList_box li .homeList_text{
+    padding-left:0.3rem;
+}
+.homeList_box li .homeList_text p:nth-child(1){
+    height: 1rem;
+    margin-top:0.6rem;
+    line-height: 1rem;
+}
+.homeList_box li .homeList_text p:nth-child(2){
+    height: 1.8rem;
+    margin-top:1.2rem;
+    line-height: 1.8rem;
+    color:red;
+    font-size:1.2rem;
+}
+.homeList_box li .homeList_text p:nth-child(3){
+    margin-top:6px;
+    position:relative;
+    height: 1rem;
+    line-height: 1rem; 
+    color:grey;
+}
+.search_empty{
+    margin-top:4rem;
+    text-align: center;
+    height: 3rem;
+    line-height: 3rem;
+}
+.search_empty span{
+    border:1px solid #d41c1c;
+    color:grey;
+    padding:0.5rem;
+    font-size:1.3rem;
+}

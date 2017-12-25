@@ -7,4 +7,4 @@ export default function getPetedit(state = {}, action) {
             break;
     }
     return newState;
-}
+}.                      

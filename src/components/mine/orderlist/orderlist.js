@@ -14,16 +14,26 @@ class orderlist extends React.Component{
     }
     orderlist(event) {
         //订单不同状态显示不同内容
-        this.props.getOrder(this.state.url,{ category: event.title })
+        this.props.getOrder(this.state.url, { category: event.title, username: window.localStorage.username})
     }
     mine(event) {
         hashHistory.push('mine')
     }
-    receipt(){
-        
-    }
+    
     componentDidMount() {
-        this.props.getOrder(this.state.url)
+        var storage = window.localStorage.username;
+        
+        var category
+        if (this.props.location.query.page==0){
+            category = "全部订单"
+        } else if (this.props.location.query.page==1){
+            category="待付款"
+        } else if (this.props.location.query.page==2){
+            category = "待收货"
+        } else if (this.props.location.query.page==3) {
+            category = "待评价"
+        }
+        this.props.getOrder(this.state.url, { category: category, username: storage})
     }
     render(){
         if (!this.props.orderlist) {
@@ -36,7 +46,7 @@ class orderlist extends React.Component{
             { title: '待评价' },
         ];
         return (
-        <div>
+            <div >   
                 <NavBar
                     mode="light"
                     icon={<Icon type="left" />}
@@ -45,8 +55,18 @@ class orderlist extends React.Component{
                         <Icon key="1" type="ellipsis" />,
                     ]}
                 >订单列表</NavBar>
-                <Tabs tabs={tabs} swipeable={false} ref="orderlist" onTabClick={this.orderlist.bind(this)}>
+                <Tabs tabs={tabs} 
+                    swipeable={false} ref="orderlist"
+                    initialPage={this.props.location.query.page*1}
+                    onTabClick={this.orderlist.bind(this)}>
                 </Tabs>
+                {function(){
+                    if(!window.localStorage.username){
+                        return <div style={{ height: '40rem' }} className="gologin">
+                        
+                        </div>
+                    }
+                }()}
                 <div style={{ width: '100%' }} className="allorder">
                     {
                         this.props.orderlist.map(function (item, idx) {
@@ -78,28 +98,38 @@ class orderlist extends React.Component{
                                         var number = item.goodnumber
                                         return '已付 ￥:' + goodprice * number
                                     }()}</span></div>
-                                    <div className="receipt pay" onClick={() => alert('Delete', '商品已收到？？？', [
+                                    <div className="receipt pay" onClick={() => alert('确认收货', '商品已收到？？？', [
                                         { text: 'Cancel', onPress: () => console.log('cancel') },
                                         {
                                             text: 'Ok',
                                             onPress: () => new Promise((resolve) => {
                                                 setTimeout(resolve, 500);
-                                                this.props.getOrder(this.state.url)
+                                                
+                                                this.props.getOrder(this.state.url, { orderid: item.orderid})
                                             }),
                                         },
                                     ])}><span>确认收货</span></div>
+                                    <img src={item.goodpic} className="imglist" /><span>{item.goodname}</span>
+                                </div>
+                            } else if (item.orderstate == 4) {
+                                return <div key={idx} className="orderlist clearfix">
+                                    <div className="orderlisttop"><span className="transaction">订单号{item.ordertime}</span><span className="copewith">{function () {
+                                        var goodprice = item.goodprice
+                                        var number = item.goodnumber
+                                        return '已付 ￥:' + goodprice * number
+                                    }()}</span></div>
+                                    <div className="receipt pay"><span>去评价</span></div>
                                     <img src={item.goodpic} className="imglist" /><span>{item.goodname}</span>
                                 </div>
                             }
                         }.bind(this))
                     }
                 </div>
-        </div>
+            </div>
         )
     }
 }
 const orderlists = function (state) {
-    console.log(state)
     return {
         orderlist: state.orderlist.response
     }

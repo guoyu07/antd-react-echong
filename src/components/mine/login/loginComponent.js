@@ -5,6 +5,7 @@ import {connect} from 'react-redux';
 import * as loginAction from './loginAction';
 import { hashHistory } from 'react-router';
 import $ from 'jquery';
+import Spinner from '../../spinner/spinnerComponent'
 
 
 class LoginComponent extends React.Component{
@@ -17,18 +18,23 @@ class LoginComponent extends React.Component{
         
             
         if(nextProps.logintype){
-
+            console.log(nextProps.loginset);
+            console.log(this.props.loginset)
             if(nextProps.logintype == 0){
                 nextState.show = true;
             }else{
-                if(this.refs.usernameLogin.value==''){
-                    return false;
+                if(nextProps.loginset[0].aa=='fail'&&nextProps.logintype == 1&&this.refs.usernameLogin.value!=''){
+                    alert("密码或者账号不正确");
+                    return ;
                 }else{
                     nextState.show = false;
-                    if(nextProps.loginset.aa=='ok'){
-                        // hashHistory.push('home')
-                        console.log(nextProps.loginset)
-                    }else{
+                    if(nextProps.loginset[0].aa=='ok'&&this.refs.usernameLogin.value!=''){
+                        var storage = window.localStorage;
+                        storage.setItem('username',this.refs.usernameLogin.value);
+                        storage.setItem('password',this.refs.passwordLogin.value);
+                        console.log(window.localStorage);
+                        hashHistory.push('home')
+                    }else if(this.refs.usernameLogin.value!=''){
                         alert('登陆账号或密码有误！')                     
                     }
                 }
@@ -37,29 +43,14 @@ class LoginComponent extends React.Component{
     }
     componentDidUpdate(prevProps, prevState){
        
-        if (this.props.loginset.aa == 'ok'){
-            var storage = window.localStorage;
-            storage.setItem('username',this.props.loginset[1]);
-            storage.setItem('password',this.props.loginset[1]);
-            
-        }
+        // if(this.props.loginset[0].aa=='ok'){
+        // }
     }
-    // componentWillMount(){
-        
-    //     const storage = window.localStorage;
-    //     this.props.getLogin(this.state.url,{username:storage.username,password:storage.password})
-        
-    // }
 
-    // componentDidUpdate(prevProps, prevState){
-        
-    //     if(this.props.loginset.length){
-    //     }
-    // }
     login(){
         console.log(this.refs.usernameLogin.value)
         this.props.getLogin(this.state.url, {username:this.refs.usernameLogin.value,password:this.refs.passwordLogin.value})
-
+        
     }
     homes(event) {
         hashHistory.push('home')
@@ -70,6 +61,7 @@ class LoginComponent extends React.Component{
     render(){
         return (
             <div className="box1">
+                <Spinner show={this.state.show}/>
                 <div className="top"><span className="goback" onClick={this.props.router.goBack}>&lt;</span></div>
                 <h1 className="login">用户登录<span></span></h1>
                 <label className="label"><span className="span">用户名</span><input  type="text" placeholder="请输入用户名" className="input" ref="usernameLogin"/></label><br/>
@@ -81,7 +73,7 @@ class LoginComponent extends React.Component{
     }
 }
 const loginToState = function(state){ 
-        console.log(state);
+        
     return {
         loginset: state.login.response||[],
         logintype:state.login.status,

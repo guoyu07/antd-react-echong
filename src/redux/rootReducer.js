@@ -9,9 +9,9 @@ import login from '../components/mine/login/loginReducer'
 import cart from '../components/cart/cartReducer'
 import home from '../components/home/homeComponentReducer'
 import homeList from '../components/home/homeList/homeListComponentReducer'
+import homeSearch from '../components/home/homeSearch/homeSearchReducer'
 import changepwd from '../components/mine/changePwd/changePwdReducer'
-import waitforpay from '../components/mine/orderlist/waitforpay/waitforpayReducer'
-
+import addedit from '../components/mine/Petinformation/addedit/addeditReducer'
 export default combineReducers({
-    datagrid, home, orderlist, petinfomation, register, login, typeReducer, shopReducer, homeList, cart, changepwd, waitforpay
+    datagrid, home, orderlist, petinfomation, register, login, typeReducer, shopReducer, homeList, cart, changepwd, homeSearch, addedit
 })
