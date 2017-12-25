@@ -2,11 +2,12 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {hashHistory} from 'react-router'
 import * as homeListComponentAction from './homeListComponentAction'
-import {  WhiteSpace, WingBlank,SearchBar,Tabs,Badge } from 'antd-mobile';
+import {  WhiteSpace, WingBlank,SearchBar,Tabs,Badge,Modal,Toast } from 'antd-mobile';
 import '../base.css'
 import './homeList.css'
 import '../font/iconfont.css'
 import $ from 'jquery'
+const alert = Modal.alert;
 
 class HomeListComponent extends React.Component{
     state={
@@ -50,6 +51,15 @@ class HomeListComponent extends React.Component{
             }
         })
     }
+    buybuy(){
+        alert('Buy Buy Buy', '成功添加到购物车', [
+          { text: '继续逛逛'},
+          {
+            text: '去购物车',
+            onPress: () =>hashHistory.push('/home')
+          },
+        ])
+    }
     render(){
         if(!this.props.homeList){
             return null
@@ -70,14 +80,14 @@ class HomeListComponent extends React.Component{
                 <ul className="homeList_box">
                     {
                         this.props.homeList.map(function(item,index){
-                            return <li key={index} style={{display:'flex'}} data-id={item.goodId} onClick={this.flyDetail.bind(this,item.goodId)}>
-                                    <div style={{flex:'30%'}}><img src={item.goodpic}style={{width:'100px'}}/></div>
+                            return <li key={index} style={{display:'flex'}} data-id={item.goodId}>
+                                    <div style={{flex:'30%'}}><img src={item.goodpic}style={{width:'100px'}}onClick={this.flyDetail.bind(this,item.goodId)}/></div>
                                     <div style={{flex:'70%'}} className="homeList_text">
                                         <p>{item.gooddetail}</p>
                                         <p>¥<span>{item.goodprice}.00</span></p>
                                         <p>互动:(100%好评) 售出:
                                             <span style={{color:'black'}}>{item.goodaudience}</span>
-                                            <span className="icon-liwu iconfont fr"style={{color:'red'}}>买</span>
+                                            <span className="icon-liwu iconfont fr"style={{color:'red'}} onClick={this.buybuy.bind(this)}>买</span>
                                         </p>
                                     </div>
                                 </li>

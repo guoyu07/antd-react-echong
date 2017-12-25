@@ -3,8 +3,9 @@ import * as homeSearchAction from './homeSearchAction'
 import {connect} from 'react-redux'
 import '../font/iconfont.css'
 import './homeSearch.css'
-import {  WhiteSpace, WingBlank,SearchBar,Tabs,Badge } from 'antd-mobile';
+import {  WhiteSpace, WingBlank,SearchBar,Tabs,Badge,Button,Modal } from 'antd-mobile';
 import {hashHistory} from 'react-router'
+const alert = Modal.alert;
 
 class HomeSearchComponent extends React.Component{
     state={
@@ -23,6 +24,9 @@ class HomeSearchComponent extends React.Component{
     }
     searchText(a){
         this.props.getHomeSearch(this.state.url,{searchText:a})
+    }
+    wanwan(){
+
     }
     render(){
         const hot=['卫衣','马甲','可爱','2017年新款','那个玩具','吃的','喝的','拉的','住的','玩的','都没有！']
@@ -44,7 +48,8 @@ class HomeSearchComponent extends React.Component{
                             }.bind(this))
                         }
                     </ul>
-                    <p className="search_empty"><span>搜了一波空</span></p>
+                    <p className="search_empty" ><span>搜了一波空</span></p>
+
                 </div>
 
             )

@@ -40,7 +40,10 @@ class HomeComponent extends React.Component{
                 search:searchValue
             }
         })
-
+    }
+    addAudience(a,b){
+        var newAudience=Number(a)+1;
+        this.props.getHome(this.state.url,{category:this.state.categorys,audience:newAudience,paramsId:b})
     }
     render(){
         if(!this.props.home){
@@ -122,11 +125,11 @@ class HomeComponent extends React.Component{
                                     <img style={{width:'100%',height:'70%',marginBottom:'0.5rem'}}src={item.goodpic}/>
                                     <h4><span>4色可选</span>{item.goodname}</h4>
                                     <p><span style={{color:'red'}}>¥{item.goodprice}.00</span>
-                                        <span className="fr iconfont icon-shoucang "></span>
+                                        <span className="fr iconfont icon-shoucang "onClick={this.addAudience.bind(this,item.goodaudience,item.goodId)}></span>
                                         <span className="fr">{item.goodaudience}</span>
                                     </p>
                                 </li>
-                        })
+                        }.bind(this))
                     }
                 </ul>
           </div>
