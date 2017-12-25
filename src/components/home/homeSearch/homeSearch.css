@@ -1,3 +1,18 @@
+.hotSearch{
+    margin-top:1.8rem;
+    display:flex;
+    flex-wrap: wrap;
+    padding-left:2rem;
+}
+.hotSearch li{
+    text-align: center;
+    margin:0.8rem 0.4rem;
+}
+.hotSearch li span{
+    padding:0.3rem;
+    border:1px solid #ccc;
+    font-size:1.2rem;
+}
 .homeList_box li{
     padding:0.8rem;
 }
@@ -22,4 +37,16 @@
     height: 1rem;
     line-height: 1rem; 
     color:grey;
+}
+.search_empty{
+    margin-top:4rem;
+    text-align: center;
+    height: 3rem;
+    line-height: 3rem;
+}
+.search_empty span{
+    border:1px solid #d41c1c;
+    color:grey;
+    padding:0.5rem;
+    font-size:1.3rem;
 }

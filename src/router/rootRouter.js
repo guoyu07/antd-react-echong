@@ -18,6 +18,7 @@ import ChangePwdComponent from '../components/mine/changePwd/changePwdComponent'
 
 export default (
 <Route path="aa">
+
     <Route path="/" component={AppComponent}>
         <Route path="products" component={ProductsComponent}></Route>
         <Route path="/home" component={HomeComponent}></Route>

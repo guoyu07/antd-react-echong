@@ -71,7 +71,7 @@ class HomeListComponent extends React.Component{
                     {
                         this.props.homeList.map(function(item,index){
                             return <li key={index} style={{display:'flex'}} data-id={item.goodId} onClick={this.flyDetail.bind(this,item.goodId)}>
-                                    <div style={{flex:'30%'}}><img src={item.goodpic}/></div>
+                                    <div style={{flex:'30%'}}><img src={item.goodpic}style={{width:'100px'}}/></div>
                                     <div style={{flex:'70%'}} className="homeList_text">
                                         <p>{item.gooddetail}</p>
                                         <p>¥<span>{item.goodprice}.00</span></p>
@@ -84,8 +84,6 @@ class HomeListComponent extends React.Component{
                         }.bind(this))
                     }
                 </ul>
-                <p>{this.props.location.query.categoryName}</p>
-                <p>{this.props.location.query.typeList}</p>
             </div>
         )
     }

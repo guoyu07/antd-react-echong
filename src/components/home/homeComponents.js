@@ -90,7 +90,6 @@ class HomeComponent extends React.Component{
                 onTabClick={this.categoryFunction.bind(this)}
               >
             </Tabs>
-            <p>{this.state.categorys}</p>
                 <CarouselComponent></CarouselComponent>
                 <ul className="dog_type">
                     {

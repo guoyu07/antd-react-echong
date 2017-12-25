@@ -1,4 +1,4 @@
-
+import Spinner from '../spinner/spinnerComponent'
 import React from 'react'
 import { Button, WhiteSpace, WingBlank, Card, NavBar, Icon} from 'antd-mobile';
 import { hashHistory } from 'react-router'
@@ -7,6 +7,33 @@ import './font/iconfont.css'
 import './css/base.css'
 
 export default class MineComponent extends React.Component{
+    state={
+        show:false,
+        myname:''
+    }
+    componentDidMount(){      
+      var storage = window.localStorage;
+      if(storage.username){ 
+        console.log(this.refs.mineLogin)
+        this.refs.mineLogin.style.display='none';
+        this.refs.minename.style.display="block";
+        this.refs.mineimg.style.display="block";
+        this.refs.outbox.style.display="block" ;
+        
+      }else if(storage.username=''){
+        this.refs.mineLogin.style.display='block';
+        this.refs.minename.style.display="none";
+        this.refs.mineimg.style.display="none";
+        this.refs.outbox.style.display="none" ;
+        
+      }else{
+        this.refs.mineLogin.style.display='block';
+        this.refs.minename.style.display="none";
+        this.refs.mineimg.style.display="none";
+        this.refs.outbox.style.display="none" ;
+          
+      }
+    }
     orderlist(event) {
         hashHistory.push('orderlist')
     }
@@ -19,9 +46,23 @@ export default class MineComponent extends React.Component{
     minelogin(){
         hashHistory.push('login')
     }
+    outAccount(){
+        if(window.confirm('你确定退出登录？')){
+            window.localStorage.clear();
+            this.refs.mineLogin.style.display='block';    
+            this.refs.minename.style.display="none";
+            this.refs.mineimg.style.display="none"; 
+            this.refs.outbox.style.display="none" ;
+            console.log(window.localStorage);
+            return true;
+        }else{
+            return false;
+        }
+    }
     render(){
         return (
             <div>
+                <Spinner show={this.state.show}/>
                 <div>
                     <NavBar
                         mode="light"
@@ -31,11 +72,11 @@ export default class MineComponent extends React.Component{
                     >我的E宠</NavBar>
                 </div>
                 <div>
-                    <div ><input type="button" value="请登录" className="mineLogin" onClick={this.minelogin}/></div>
+                    <div className="mineLoginbaba"><input type="button" value="请登录" className="mineLogin" ref="mineLogin" onClick={this.minelogin}/></div>
                     <Card full>
-                        <Card.Header className="mine"
-                            title={<div><span className="username">666</span><div className="vip-d">vip俱乐部：v0</div></div>}
-                            thumb={<img src="src/images/dog_portrait.jpg" className="headerimg-d"/>}
+                        <Card.Header className="mine" ref="mine"
+                            title={<div><span className="username" ref="minename">{window.localStorage.username}</span><div className="vip-d" ref="mineimg">vip俱乐部：v0</div></div>}
+                            thumb={<img src="src/images/dog_portrait.jpg" className="headerimg-d" />}
                         />
                     </Card>
                 </div>
@@ -124,6 +165,10 @@ export default class MineComponent extends React.Component{
                         <li className="clearfix">
                             <span className="mainleft"><i className="iconfont icon-kefu"></i>联系客服</span>
                             <span className="mainright iconfont icon-you"></span>
+                        </li>
+                        <li className="clearfix outbox" ref="outbox" onClick={this.outAccount.bind(this)}>
+                            <span className="mainleft outAccount">退出登录</span>
+                            
                         </li>
                     </ul>
                 </div>
