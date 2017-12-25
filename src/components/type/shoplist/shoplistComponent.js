@@ -13,15 +13,28 @@ const Brief = Item.Brief;
              
     state={
         url:'goodlist.php',
-
+        carurl:'goodcart.php',
     }
     componentDidMount(){
         console.log(this.props.location.query)
         this.props.getData(this.state.url,this.props.location.query)
         $('.am-tabs-tab-bar-wrap').css({display:'none'}) 
     }
-  
 
+ 
+    change(event){
+        console.log(event.target)
+        var d = new Date();
+        var str = d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate();
+        var storage = window.localStorage;  
+        var data = JSON.parse(this.props.dataset.text)[0]
+        data.ordertime = str
+        data.username = storage.username
+        data.orderstate = 1
+        data.orderId = Date.parse(new Date())
+        this.props.insertcart(this.state.carurl,data)
+        console.log(storage.username)
+    }
     render(){
         if(!this.props.dataset){
             return null
@@ -51,7 +64,9 @@ const Brief = Item.Brief;
                             <li>收藏</li>
                             <li>购物车</li>
                         </ul>
-                        <div className='addbtn'><span>加入购物车</span></div>
+                        <div className='addbtn'
+                            onClick={this.change.bind(this)}
+                        ><span>加入购物车</span></div>
                     </div>
                 </div>
 

@@ -31,6 +31,16 @@ class HomeComponent extends React.Component{
             }
         })
     }
+    flyDetail(a){
+        var categoryName1=this.state.categorys;
+         hashHistory.push({
+            pathname:'/shoplist',
+            query:{
+                id:a,
+                title:categoryName1
+            }
+        })
+    }
     searchList(){
         var searchValue=this.refs.searchText.state.value;
         console.log(this.refs.searchText.state.value)
@@ -85,7 +95,7 @@ class HomeComponent extends React.Component{
               <h1 style={{display:'flex'}}>
               <p style={{fontSize:'1.2rem',lineHeight:'100%',marginTop:'0.75rem'}}>狗站 |</p>
               <SearchBar ref="searchText"style={{width:'70%'}}placeholder="Search" />
-              <span onClick={this.searchList.bind(this)} style={{color:'skyBlue',marginTop:'0.8rem'}}>搜索一波</span>
+              <span onClick={this.searchList.bind(this)} style={{color:'red',marginTop:'0.8rem'}}>搜索一波</span>
             </h1>
              <Tabs tabs={tabs}
                 swipeable={false}
@@ -122,10 +132,10 @@ class HomeComponent extends React.Component{
                     {
                         this.props.home.map(function(item,index){
                             return <li key={index} className="tejia_small" data-id={item.goodId} data-category={item.category}>
-                                    <img style={{width:'100%',height:'70%',marginBottom:'0.5rem'}}src={item.goodpic}/>
+                                    <img style={{width:'100%',height:'70%',marginBottom:'0.5rem'}}src={item.goodpic} onClick={this.flyDetail.bind(this,item.goodId)}/>
                                     <h4><span>4色可选</span>{item.goodname}</h4>
                                     <p><span style={{color:'red'}}>¥{item.goodprice}.00</span>
-                                        <span className="fr iconfont icon-shoucang "onClick={this.addAudience.bind(this,item.goodaudience,item.goodId)}></span>
+                                        <span className="fr iconfont icon-shoucang "onClick={this.addAudience.bind(this,item.goodaudience,item.goodId)}style={{color:'red'}}></span>
                                         <span className="fr">{item.goodaudience}</span>
                                     </p>
                                 </li>

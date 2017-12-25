@@ -11,7 +11,8 @@ const alert = Modal.alert;
 
 class HomeListComponent extends React.Component{
     state={
-        url:'homeList.php'
+        url:'homeList.php',
+        carurl:'goodcart.php'
     }
     flyHome(){
         hashHistory.push('/home')
@@ -51,12 +52,26 @@ class HomeListComponent extends React.Component{
             }
         })
     }
-    buybuy(){
+    buybuy(a){
+        
+        console.log(a);
+        var d = new Date();
+        var str = d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate();
+        var storage = window.localStorage;  
+        var data = this.props.homeList[a]
+        data.ordertime = str
+        data.username = storage.username
+        data.orderstate = 1
+        data.orderId = Date.parse(new Date())
+        data.subtotal = data.goodprice*1
+        data.goodnumber= 1
+        this.props.homeCar(this.state.carurl,data)
+        console.log(data)
         alert('Buy Buy Buy', '成功添加到购物车', [
           { text: '继续逛逛'},
           {
             text: '去购物车',
-            onPress: () =>hashHistory.push('/home')
+            onPress: () =>hashHistory.push('/cart')
           },
         ])
     }
@@ -87,7 +102,7 @@ class HomeListComponent extends React.Component{
                                         <p>¥<span>{item.goodprice}.00</span></p>
                                         <p>互动:(100%好评) 售出:
                                             <span style={{color:'black'}}>{item.goodaudience}</span>
-                                            <span className="icon-liwu iconfont fr"style={{color:'red'}} onClick={this.buybuy.bind(this)}>买</span>
+                                            <span className="icon-liwu iconfont fr"style={{color:'red'}} onClick={this.buybuy.bind(this,index)}>买</span>
                                         </p>
                                     </div>
                                 </li>

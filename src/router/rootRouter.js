@@ -15,9 +15,11 @@ import HomeListComponent from '../components/home/homeList/homeListComponent'
 import HomeSearchComponent from '../components/home/homeSearch/homeSearchComponent'
 import PeteditComponent from '../components/mine/Petinformation/petedit/peteditComponent'
 import ChangePwdComponent from '../components/mine/changePwd/changePwdComponent'
+import IndentComponent from '../components/cart/indentComponent/indentComponent'
 
 export default (
 <Route path="aa">
+
     <Route path="/" component={AppComponent}>
         <Route path="products" component={ProductsComponent}></Route>
         <Route path="/home" component={HomeComponent}></Route>
@@ -36,5 +38,7 @@ export default (
     <Route path="/homeList" component={HomeListComponent}></Route>
     <Route path="/homeSearch" component={HomeSearchComponent}></Route>
     <Route path="/ChangePwdComponent" component={ChangePwdComponent}></Route>
+    <Route path="/indent" component={IndentComponent}></Route>
+
 </Route>
 )
