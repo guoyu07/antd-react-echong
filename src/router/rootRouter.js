@@ -14,6 +14,7 @@ import LoginComponent from '../components/mine/login/loginComponent'
 import HomeListComponent from '../components/home/homeList/homeListComponent'
 import PeteditComponent from '../components/mine/Petinformation/petedit/peteditComponent'
 import ChangePwdComponent from '../components/mine/changePwd/changePwdComponent'
+import WaitforpayComponent from '../components/mine/orderlist/waitforpay/waitforpayComponent'
 
 export default (
 <Route path="aa">
@@ -31,6 +32,7 @@ export default (
     <Route path="/type" component={TypeComponent}></Route>
     <Route path="/PeteditComponent" component={PeteditComponent}></Route>
     <Route path="/homeList" component={HomeListComponent}></Route>
+    <Route path="/WaitforpayComponent" component={WaitforpayComponent}></Route>
     <Route path="/ChangePwdComponent" component={ChangePwdComponent}></Route>
 </Route>
 )

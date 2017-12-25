@@ -1,0 +1,4 @@
+/* .changePwd{background:rgb(248, 248,248);height: 40rem;} */
+.oldcodelab,.newcodelab,.confirmcodelab{height:2rem;line-height:2rem;border-bottom:1px solid #ccc;}
+.oldcodes,.newcodes,.confirmcodes{width:6rem;display: inline-block;text-align: center;}
+.pwdbtn{width: 17rem;margin: 1rem auto;height: 2rem;border-radius: 0.2rem;background: red;color: #fff;display: block;}

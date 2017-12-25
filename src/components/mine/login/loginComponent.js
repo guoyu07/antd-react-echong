@@ -14,8 +14,7 @@ class LoginComponent extends React.Component{
     }
 
     componentWillUpdate(nextProps, nextState){
-            // console.log(nexProps.logintype)
-            // console.log(nexProps.loginset)
+        
             
         if(nextProps.logintype){
 
@@ -26,8 +25,9 @@ class LoginComponent extends React.Component{
                     return false;
                 }else{
                     nextState.show = false;
-                    if(nextProps.loginset.length){
-                        hashHistory.push('home')
+                    if(nextProps.loginset.aa=='ok'){
+                        // hashHistory.push('home')
+                        console.log(nextProps.loginset)
                     }else{
                         alert('登陆账号或密码有误！')                     
                     }
@@ -37,11 +37,11 @@ class LoginComponent extends React.Component{
     }
     componentDidUpdate(prevProps, prevState){
        
-        if(this.props.loginset.length){
+        if (this.props.loginset.aa == 'ok'){
             var storage = window.localStorage;
             storage.setItem('username',this.props.loginset[1]);
             storage.setItem('password',this.props.loginset[1]);
-            console.log(window.localStorage)
+            
         }
     }
     // componentWillMount(){
@@ -57,6 +57,7 @@ class LoginComponent extends React.Component{
     //     }
     // }
     login(){
+        console.log(this.refs.usernameLogin.value)
         this.props.getLogin(this.state.url, {username:this.refs.usernameLogin.value,password:this.refs.passwordLogin.value})
 
     }
@@ -80,7 +81,7 @@ class LoginComponent extends React.Component{
     }
 }
 const loginToState = function(state){ 
-        console.log(state)
+        console.log(state);
     return {
         loginset: state.login.response||[],
         logintype:state.login.status,

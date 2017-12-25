@@ -1,5 +1,7 @@
 .arrearage{color:red;text-align:right;}
 .paid{color:#58bc58;text-align:right;}
+.receipt{color:#58bc58;text-align:right;}
+.receipt span{display: inline-block;background: #58bc58;color:#fff;margin:0 1rem;padding: 0 0.5rem;border-radius:0.15rem;}
 .paid,.arrearage span{padding-right: 0.5rem;}
 .orderlist{text-align: left;margin-top:0.6rem;background: #fff;}
 .buttonpay{width: 4rem;height:1.5rem;border-radius:0.3rem;color:#fff;background:hsl(0, 91%, 50%);float:right;margin-right:1rem;}

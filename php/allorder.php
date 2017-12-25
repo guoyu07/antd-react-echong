@@ -6,9 +6,17 @@
 
 
     include 'DBHelper.php';
-    $username = isset($_POST['username']) ? $_POST['username'] : '';
+    $username = isset($_GET['username']) ? $_GET['username'] : '';
+    $category = isset($_GET['category']) ? $_GET['category'] : '';
 
-    $sql = "select * from orderlist where username ='111'";
+    if($category=='待付款'){
+        $sql = "select * from orderlist where username ='111' and orderstate='1'";
+    }else if($category=='待收货'){
+        $sql = "select * from orderlist where username ='111' and orderstate='2'";
+    }else{
+        $sql = "select * from orderlist where username ='111'";
+    }
+    
     // mysqli_query($conn,"UPDATE orders SET status=1 WHERE username='$username'");
     // 获取查询结果
     $result =query($sql);

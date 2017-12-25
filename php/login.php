@@ -58,8 +58,7 @@
 
             $result = $conn->query($sql);
             if ($result) {
-                // 写入成功
-                // echo "ok";
+    
                 class Obj{
                     var $aa = 'ok';
                 }

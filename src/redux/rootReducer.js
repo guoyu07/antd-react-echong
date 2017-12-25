@@ -2,7 +2,7 @@ import {combineReducers} from 'redux'
 import typeReducer from '../components/type/typeReducer'
 import shopReducer from '../components/type/shoplist/shopReducer'
 import datagrid from '../components/datagrid/datagridReducer'
-import allorder from "../components/mine/orderlist/allorder/allorderReducer";
+import orderlist from "../components/mine/orderlist/orderlistReducer";
 import petinfomation from "../components/mine/Petinformation/informationReducer"
 import register from '../components/mine/register/registerReducer'
 import login from '../components/mine/login/loginReducer'
@@ -10,7 +10,8 @@ import cart from '../components/cart/cartReducer'
 import home from '../components/home/homeComponentReducer'
 import homeList from '../components/home/homeList/homeListComponentReducer'
 import changepwd from '../components/mine/changePwd/changePwdReducer'
+import waitforpay from '../components/mine/orderlist/waitforpay/waitforpayReducer'
 
 export default combineReducers({
-    datagrid, home, allorder,petinfomation,register,login,typeReducer,shopReducer,homeList,cart,changepwd
+    datagrid, home, orderlist, petinfomation, register, login, typeReducer, shopReducer, homeList, cart, changepwd, waitforpay
 })
