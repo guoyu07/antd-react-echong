@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-11-16 20:36:53
  * @Last Modified by:   Marte
- * @Last Modified time: 2017-12-25 13:41:32
+ * @Last Modified time: 2017-12-25 16:05:34
  */
 
     include "./DBHelper.php";   
@@ -21,9 +21,10 @@
     $username = isset($_POST['username']) ? $_POST['username'] :'';
     $goodcolor = isset($_POST['goodcolor']) ? $_POST['goodcolor'] :'';
     $orderId = isset($_POST['orderId']) ? $_POST['orderId'] :'';
+    $subtotal = isset($_post['subtotal'])?$_post['subtotal'] : '';
     $orderstate = "1";
                                                                                    
-    $sql="insert into orderlist(goodpic,orderstate,ordertime,gooddetail,goodcolor,orderid,username,goodname,goodnumber,goodprice) values ('$goodpic','$orderstate','$ordertime','$gooddetail','$goodcolor','$orderId','$username','$goodname','$goodnumber','$goodprice')";
+    $sql="insert into orderlist(goodpic,orderstate,ordertime,gooddetail,goodcolor,orderid,username,goodname,goodnumber,goodprice,subtotal) values ('$goodpic','$orderstate','$ordertime','$gooddetail','$goodcolor','$orderId','$username','$goodname','$goodnumber','$goodprice','$subtotal')";
 
     $result = excute($sql);
     

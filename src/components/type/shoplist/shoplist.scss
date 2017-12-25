@@ -1,4 +1,5 @@
 #shoplist{
+   
     .clearfix:after{
         content:"";
         display:block;
@@ -13,6 +14,23 @@
             width: 15rem;
             height: 15rem;
         }
+
+    }
+    .am-list-body{
+            
+            
+        .am-list-item .am-list-line .am-list-content{
+            overflow: visible;
+            a{
+                background: #2db7f5;
+                color: #fff;
+            }
+        }
+      .am-list-item .am-list-line .am-list-content {
+        span.price{
+         color: #f00;
+        }
+      }
     }
     .am-list-item .am-list-line .am-list-extra {
         -webkit-flex-basis: 36%;
@@ -23,12 +41,16 @@
         position:fixed;
         bottom:0;
         width:100%;
+        z-index:1000000;
+        background: #fff;
+
         ul{
             float:left;
             width:50%;
             li{
                 float:left;
                 width:31%;
+
             }
         }
         .addbtn{
@@ -40,5 +62,8 @@
             line-height: 2.5rem;
             font-size: 1rem;
         }
+    }
+    .am-list-body {
+        border-bottom: 1PX solid #ddd;
     }
 }    

@@ -19,8 +19,11 @@ const Brief = Item.Brief;
         console.log(this.props.location.query)
         this.props.getData(this.state.url,this.props.location.query)
         $('.am-tabs-tab-bar-wrap').css({display:'none'}) 
+        
     }
-
+    commit(){
+        hashHistory.push('/commit')
+    }
  
     change(event){
         console.log(event.target)
@@ -33,12 +36,12 @@ const Brief = Item.Brief;
         data.orderstate = 1
         data.orderId = Date.parse(new Date())
         this.props.insertcart(this.state.carurl,data)
-        console.log(data)
     }
     render(){
         if(!this.props.dataset){
             return null
         }
+        console.log(this.props.dataset)
         return   <div id='shoplist'>
                     <div>
                         <NavBar
@@ -49,14 +52,32 @@ const Brief = Item.Brief;
                             <Icon key="0" type="search" style={{ marginRight: '16px' }} />,
                             <Icon key="1" type="ellipsis" />,
                           ]}
-                        >NavBar</NavBar>
+                        >{JSON.parse(this.props.dataset.text)[0].goodname }</NavBar>
                     </div>
-                    <ul className='list_zx clear'>
+                    <ul className='list_zx clear' style={{marginBottom:'2.5rem'}}>
                         <li className='list_img'><img src={JSON.parse(this.props.dataset.text)[0].goodpic} alt="" /></li>
                         <List renderHeader={() => JSON.parse(this.props.dataset.text)[0].goodname } className="my-list">
-                            <Item extra={JSON.parse(this.props.dataset.text)[0].gooddetail}>￥19.80</Item>
+                            <Item extra={JSON.parse(this.props.dataset.text)[0].gooddetail} className = 'price'
+                            ><span className='price'>￥{JSON.parse(this.props.dataset.text)[0].goodprice}</span></Item>
                         </List>
-                        
+                        <List>
+                            <Item extra='地区' >{JSON.parse(this.props.dataset.text)[0].goodaddress}</Item>
+                        </List>
+                       <List  className="pinglun" style={{marginTop:'2rem'}}>
+                        <Item extra="好评率（100%）" arrow="horizontal" onClick={() => {}} className="my-commit"><span >商品评论</span></Item>
+                        <Item extra="10:30" align="top" thumb="https://zos.alipayobjects.com/rmsportal/dNuvNrtqUztHCwM.png" multipleLine>
+                          Title <Brief>subtitle</Brief>
+                        </Item>
+                        <Item extra="10:30" align="top" thumb="https://zos.alipayobjects.com/rmsportal/dNuvNrtqUztHCwM.png" multipleLine>
+                          Title <Brief>subtitle</Brief>
+                        </Item>
+                        <Item extra="10:30" align="top" thumb="https://zos.alipayobjects.com/rmsportal/dNuvNrtqUztHCwM.png" multipleLine>
+                          Title <Brief>subtitle</Brief>
+                        </Item>
+                        <Item>
+                            <Button onClick={this.commit.bind(this)}>更多评论</Button>
+                        </Item>
+                      </List>
                     </ul>
                     <div className='add clearfix'>
                         <ul>
