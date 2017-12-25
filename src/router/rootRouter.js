@@ -19,7 +19,10 @@ export default (
         <Route path="/home" component={HomeComponent}></Route>
         <Route path="/mine" component={MineComponent}></Route>
         <Route path="/cart" component={CartComponent}></Route>
-        <Route path="/type" component={TypeComponent}></Route>
+        <Route path="/type" component={TypeComponent}>
+        </Route>
+        <Route path="/shoplist" component={ShoplistComponent}></Route>
+
 
     </Route>
     <Route path="/orderlist" component={Orderlist}></Route>
