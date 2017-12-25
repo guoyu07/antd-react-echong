@@ -13,6 +13,12 @@
 .homeList_box li{
     padding:0.8rem;
 }
+.homeList_type{
+    text-align: center;
+    font-size:1.4rem;
+    line-height: 2rem;
+    color:skyBlue;
+}
 .homeList_box li .homeList_text{
     padding-left:0.3rem;
 }

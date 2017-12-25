@@ -1,12 +1,12 @@
-export default function DataGridReducer(state = {}, action){
+export default function shopReducer(state = {}, action){
     var newState = JSON.parse(JSON.stringify(state));
 
     switch(action.type){
 
-        case 'beforeRequest':
+        case 'shopsome':
             newState.status = 0;
             break;
-        case 'Request':
+        case 'shop':
             newState.status = 1;
             newState.response = action.response;
             break;
@@ -15,6 +15,6 @@ export default function DataGridReducer(state = {}, action){
             newState.error = action.error
             break;
     }
-    //console.log(newState)
+    console.log(newState)
     return newState;
 }

@@ -1,1 +1,44 @@
-
+#shoplist{
+    .clearfix:after{
+        content:"";
+        display:block;
+        clear:both;
+        overflow:hidden;
+        height:0;
+        visibility:hidden;
+        zoom:1;
+    } 
+    .list_img{
+        img{
+            width: 15rem;
+            height: 15rem;
+        }
+    }
+    .am-list-item .am-list-line .am-list-extra {
+        -webkit-flex-basis: 36%;
+        -ms-flex-preferred-size: 36%;
+        flex-basis: 80%;
+    }
+    .add{
+        position:fixed;
+        bottom:0;
+        width:100%;
+        ul{
+            float:left;
+            width:50%;
+            li{
+                float:left;
+                width:31%;
+            }
+        }
+        .addbtn{
+            float:left;
+            width:50%;
+            background:red;
+            color: #fff;
+            height:2.5rem;
+            line-height: 2.5rem;
+            font-size: 1rem;
+        }
+    }
+}    
