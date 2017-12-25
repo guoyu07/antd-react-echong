@@ -1,8 +1,9 @@
-export function changeAction(_url, _params) {
+export function getOrder(_url, _params) {
     return {
-        types: ['changeAction','aa'],
+        types: ['orderlist', 'aa'],
         url: _url,
         method: 'get',
         params: _params
+
     }
 }

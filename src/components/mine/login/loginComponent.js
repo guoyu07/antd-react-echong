@@ -15,8 +15,7 @@ class LoginComponent extends React.Component{
     }
 
     componentWillUpdate(nextProps, nextState){
-            // console.log(nexProps.logintype)
-            // console.log(nexProps.loginset)
+        
             
         if(nextProps.logintype){
             console.log(nextProps.loginset);
@@ -49,6 +48,7 @@ class LoginComponent extends React.Component{
     }
 
     login(){
+        console.log(this.refs.usernameLogin.value)
         this.props.getLogin(this.state.url, {username:this.refs.usernameLogin.value,password:this.refs.passwordLogin.value})
         
     }
