@@ -1,6 +1,6 @@
-export function getData(_url, _params){
+export function getHome(_url, _params){
     return {
-        types: ['home'],
+        types: ['home','aa'],
         url: _url,
         method:'get',
         params: _params

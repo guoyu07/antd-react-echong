@@ -11,3 +11,4 @@
 .mainul .mainleft{float: left;}
 .mainul .mainleft i{padding-right:0.5rem;}
 .mainul .mainright{float: right;}
+.mineLogin{position:absolute;top:9rem;width:8rem;height:3rem;background-color:rgb(224, 188, 90);z-index:999;font-size:1.5rem;color:#fff;}

@@ -14,6 +14,7 @@ import * as typeAction from './typeAction';
     }
     componentDidMount(){
 
+
         this.props.getDatazx(this.state.url, {title:this.state.title})
         $('.am-tabs-tab-bar-wrap').css({display:'block'})
     }
@@ -27,6 +28,10 @@ import * as typeAction from './typeAction';
             title:this.state.title
           }
         })
+        console.log(666);
+        this.props.getType(this.state.url, {title:this.state.title})
+
+
     }
     renderContent = tab =>
     (<div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%', backgroundColor: '#fff' }}>
@@ -42,8 +47,6 @@ import * as typeAction from './typeAction';
       if(!this.props.dataset){
             return null
         }
-
-      console.log(this.props.dataset)
         const thisr = this.props  
         const tabs = [
               { title: '狗狗服饰' },
@@ -67,14 +70,17 @@ import * as typeAction from './typeAction';
                           tabDirection="vertical"
                           onChange={(e,r,t) => {
                             var title = e.title
+
                               this.setState({title:title})
                               this.props.getDatazx(this.state.url, {title:e.title})
                               console.log(this.dataset)
+
                             }}
                           >
                           <div style={{ height: '28rem', backgroundColor: '#fff' }} >
                             
                             {
+
                                 this.props.dataset.map(function(obj, index){
                                      return <ul key={index} id={obj.goodId} className='list_zx clearfix'  onClick={this.change.bind(this)}>
                                                 <li className='list_img'>

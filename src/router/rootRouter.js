@@ -11,6 +11,10 @@ import Orderlist from "../components/mine/orderlist/orderlist";
 import Petinformation from'../components/mine/Petinformation/petinformationComponent'
 import RegisterComponent from '../components/mine/register/registerComponent'
 import LoginComponent from '../components/mine/login/loginComponent'
+import HomeListComponent from '../components/home/homeList/homeListComponent'
+import HomeSearchComponent from '../components/home/homeSearch/homeSearchComponent'
+import PeteditComponent from '../components/mine/Petinformation/petedit/peteditComponent'
+import ChangePwdComponent from '../components/mine/changePwd/changePwdComponent'
 
 export default (
 <Route path="aa">
@@ -22,12 +26,15 @@ export default (
         <Route path="/type" component={TypeComponent}>
         </Route>
         <Route path="/shoplist" component={ShoplistComponent}></Route>
-
-
     </Route>
     <Route path="/orderlist" component={Orderlist}></Route>
     <Route path="/petinformation" component={Petinformation}></Route>
     <Route path="/login" component={LoginComponent}></Route>  
     <Route path="/register" component={RegisterComponent}></Route>
+    <Route path="/type" component={TypeComponent}></Route>
+    <Route path="/PeteditComponent" component={PeteditComponent}></Route>
+    <Route path="/homeList" component={HomeListComponent}></Route>
+    <Route path="/homeSearch" component={HomeSearchComponent}></Route>
+    <Route path="/ChangePwdComponent" component={ChangePwdComponent}></Route>
 </Route>
 )

@@ -2,7 +2,7 @@
 import request from 'superagent'
 
 
-const LOCAL_SERVER = 'http://localhost:301/php/';
+const LOCAL_SERVER = 'http://localhost:9527/php/';
 
 
 const DEV_SERVER = '';
@@ -14,7 +14,6 @@ function getUrl(path) {
     }
     return `${LOCAL_SERVER}${path}`;
 }
-
 const HttpClient = {
     get: (path, query) => new Promise((resolve, reject) => {
         var req = request
