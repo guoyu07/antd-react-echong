@@ -20,31 +20,43 @@ ul,li{
     zoom:1;
 } 
 
+    #zx{
 
-    .list_zx{
-        margin-top: 1rem;
-        li{
-            &.list_img{
-                vertical-align: middle;
-                img{
-                    width: 5rem;
-                }
+        .list_zx{
+            margin-top: 1rem;
+            li{
+                &.list_img{
+                    vertical-align: middle;
+                    img{
+                        width: 5rem;
+                    }
 
-            }
-            &.list_con{
-                width:12rem;
-                text-align:left;
-                span{
-                    font-size: 0.4rem;
-                    color: #ccc;
-                    padding-right: 0.4rem;
                 }
+                &.list_con{
+                    width:12rem;
+                    text-align:left;
+                    
+                   .am-button{
+                        width: 7.142857rem;
+                        height: 1.428571rem;
+                        line-height: 1.428571rem;
+                        span{
+                            font-size: #fff;
+
+                        }
+                   }
+                   .span{
+                        font-size: 0.4rem;
+                        color: #ccc;
+                        padding-right: 0.4rem;
+                        line-height: 1rem;
+                    }
+                }
+                float:left;
+                width:6rem;
                 
             }
-            float:left;
-            width:6rem;
-            
-        }
-       
+           
 
+        }
     }
