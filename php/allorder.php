@@ -18,7 +18,7 @@
         $sql = "select * from orderlist where username ='$username' and orderstate='4'";
     }else if($orderid){
         $changepstate = "UPDATE orderlist SET orderstate='4' WHERE orderid='$orderid'";
-        $result = excute($changepstate);
+        excute($changepstate);
         $sql = "select * from orderlist where username ='$username'";
     }else if($category=='全部订单'){
         $sql = "select * from orderlist where username ='$username'";

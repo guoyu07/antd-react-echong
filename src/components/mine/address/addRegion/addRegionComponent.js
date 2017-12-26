@@ -12,7 +12,16 @@ class AddregionComponent extends React.Component {
            alert('请完善你的地址信息')
            return
         }
-        this.props.getAddregion('addregion.php', { username: window.localStorage.username, regionname: this.refs.regionname.value, regionphone: this.refs.regionphone.value, regionress: this.refs.regionress.value, detailedly: this.refs.detailedly.value})
+        if (!window.localStorage.username){
+            alert('请先登录')
+            return
+        }
+        var _phone = this.refs.regionphone.value;
+        if (!/^1[34578]\d{9}$/.test(_phone)) {
+            alert('手机号码不合法');
+            return false;
+        }
+        this.props.getAddregion('addregion.php', { username: window.localStorage.username, regionname: this.refs.regionname.value, regionphone: _phone, regionress: this.refs.regionress.value, detailedly: this.refs.detailedly.value})
     }
     componentWillUpdate(nextProps, nextState) {
 
@@ -34,7 +43,6 @@ class AddregionComponent extends React.Component {
                     icon={<Icon type="left" />}
                     onLeftClick={() => this.AddressComponent()}
                 >添加地址</NavBar>
-                
                 <label className="pets">
                     <span className="petedit">收件人</span><input type="text" placeholder={"请输入真实姓名"} className="nick" ref="regionname" />
                 </label><br />

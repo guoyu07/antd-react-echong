@@ -108,7 +108,7 @@ class orderlist extends React.Component{
                                             onPress: () => new Promise((resolve) => {
                                                 setTimeout(resolve, 500);
                                                 
-                                                this.props.getOrder(this.state.url, { orderid: item.orderid})
+                                                this.props.getOrder(this.state.url, { orderid: item.orderid,username:window.localStorage.username})
                                             }),
                                         },
                                     ])}><span>确认收货</span></div>
