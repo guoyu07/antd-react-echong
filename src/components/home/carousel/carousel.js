@@ -9,7 +9,7 @@ export default class CarouselComponent extends React.Component{
     componentDidMount() {
         setTimeout(() => {
           this.setState({
-            data: ['clothesLun1', 'clothesLun2', 'clothesLun3'],
+            data: ['clothesLun1','clothesLun2','clothesLun3']
           });
         }, 100);
      } 

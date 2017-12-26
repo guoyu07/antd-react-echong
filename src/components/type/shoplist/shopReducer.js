@@ -3,10 +3,10 @@ export default function shopReducer(state = {}, action){
 
     switch(action.type){
 
-        case 'shopsome'||'shopsomecart':
+        case 'shopsome':
             newState.status = 0;
             break;
-        case 'shop'||'shopcart':
+        case 'shop':
             newState.status = 1;
             newState.response = action.response;
             break;

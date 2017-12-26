@@ -1,0 +1,56 @@
+.mydetail{
+    border-bottom:1px dashed #ccc;
+    padding-bottom:2rem;
+}
+.mydetail span{
+    font-size:1.2rem;
+    margin-left: 2rem;
+}
+.mydetail h2{
+    height: 3rem;
+    line-height: 2rem;
+    padding:0.8rem;
+}
+.mydetail p{
+    height: 2rem;
+    line-height: 2rem;
+    padding:0.8rem;
+}
+.mydetail p span:nth-child(1){
+    padding:0.2rem 1rem;
+    background:red;
+    border-radius:8px;
+    color:white;
+    margin-right:-1.3rem;
+}
+.indent_bot{
+    display:flex;
+    position: fixed;
+    bottom:0;
+    width: 100%;
+    height: 2.4rem;
+    line-height: 2.4rem;
+    padding:0 0.3rem;
+    z-index:10;
+    background:grey;
+}
+.indent_bot p{
+    flex:1;
+}
+.indent_bot p:nth-child(1){
+    font-size:1.6rem;
+    color:black;
+}
+.indent_bot p:nth-child(2){
+    text-align: right;
+}
+.indent_bot p:nth-child(1) span{
+    color:red;
+}
+.indent_bot p:nth-child(2) span{
+    background:red;
+    color:white;
+    padding:0.4rem 1rem;
+    border-radius:4px;
+}
+

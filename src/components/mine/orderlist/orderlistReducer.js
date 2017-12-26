@@ -1,7 +1,7 @@
-export default function allorderReducer(state = {}, action) {
+export default function orderReducer(state = {}, action) {
     var newState = JSON.parse(JSON.stringify(state));
     switch (action.type) {
-        case 'allorder':
+        case 'orderlist':
             newState.status = 1;
             newState.response = action.response;
             break;

@@ -20,8 +20,9 @@
       break;
 
     };
-    $sql = "select * from $title WHERE goodId = $id";
-    $result = query($sql);
+    $sql = "select * from $title WHERE goodId = $id;";
+    $sql .= "select * from commit";
+    $result = multi_query_oop($sql);
 
     echo json_encode($result, JSON_UNESCAPED_UNICODE);
 

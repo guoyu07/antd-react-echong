@@ -2,8 +2,9 @@
 .pet{background:#fff; text-align: center;}
 .sex{width:1rem;}
 .pet{margin-top:0.5rem;}
-.nickname{font-size:16px;}
+.nickname{font-size:16px;margin:1rem 0;display: block;}
 .edit{border-right:1px solid #ccc;}
 .species{font-size:12px;}
 .operation{padding:0.5rem;background:rgb(252, 252, 252);}
 .operation span{width:50%;text-align:center;display:inline-block;height:1.5rem;line-height:1.5rem;}
+.peyimg{display: block;margin: 0 auto;width: 5rem;padding: 0.5rem 0;}

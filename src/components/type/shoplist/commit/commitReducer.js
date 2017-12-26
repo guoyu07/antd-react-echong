@@ -3,10 +3,10 @@ export default function commitReducer(state = {}, action){
 
     switch(action.type){
 
-        case 'commitsome':
+        case 'commitsome' :
             newState.status = 0;
             break;
-        case 'commit':
+        case 'commit'  :
             newState.status = 1;
             newState.response = action.response;
             break;
