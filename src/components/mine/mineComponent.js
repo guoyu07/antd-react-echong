@@ -14,7 +14,6 @@ export default class MineComponent extends React.Component{
     componentDidMount(){      
       var storage = window.localStorage;
       if(storage.username){ 
-        console.log(this.refs.mineLogin)
         this.refs.mineLogin.style.display='none';
         this.refs.minename.style.display="block";
         this.refs.mineimg.style.display="block";

@@ -1,18 +1,22 @@
-.cart{font-size:1.5rem;line-height:3rem;height:3rem;border-bottom:1px solid rgba(243, 239, 239, 0.87);}
+.cart{position:fixed;width:100%;font-size:1.2rem;line-height:3rem;height:3rem;border-bottom:1px solid rgba(243, 239, 239, 0.87);color:#000;background-color:#fff;z-index:9999;top:0rem;}
 .cc{position:absolute;top:50%;width:100%;}
 .ss{font-size:1rem;border:1px solid rgba(243, 239, 239, 0.87);margin-left:1rem;margin-right:1rem;display:inline-block;width:8rem;height:3rem;line-height:3rem;border-radius:0.3rem;}
 .image{border:1px solid rgba(243, 239, 239, 0.87);display:inline-block;width:5rem;height:5rem;}
-.goodlist{border:1px solid rgba(243, 239, 239, 0.87);text-align: left;position:relative;font-size:0.9rem;padding-top:1rem;}
+.goodlist{padding-bottom:3rem;border:1px solid rgba(243, 239, 239, 0.87);text-align: left;position:relative;font-size:0.9rem;padding-top:1rem;}
+.goodli{border:1px solid rgba(243, 239, 239, 0.87);text-align: left;position:relative;font-size:0.9rem;padding-top:1rem;}
 .selectnub{height:3rem;line-height:3rem;}
 .goodbiaozi{font-size:1.2rem;color:red;margin-top:3rem;position:absolute;left:-0.6rem;top:0.5rem;}
 .goodprice{background-color:#fff;font-size:1.4rem;color:red;margin-top:3rem;position:absolute;top:0.4rem;}
 .gooddetail{position:absolute;top:1.5rem;left:6.5rem;}
-.xuanze{text-align: left;padding-left:0.1rem;padding-top:0.3rem;padding-bottom:0.3rem;}
+.xuanze{margin-top:3rem;text-align: left;padding-left:0.1rem;padding-top:0.3rem;padding-bottom:0.3rem;}
 .xz{width:1rem;height:1rem;border:1px solid rgba(243, 239, 239, 0.87);border-radius:50%;}
 .jia,.jian,.nub{display:inline-block;border:1px solid rgba(243, 239, 239, 0.87);width:1.5rem;height:1.5rem;text-align:center;line-height:1.5rem;}
 .jian{margin-left:1rem;}
 .jia{color:red;}
-.checkout{position:fixed;bottom:3rem;border-top:1px solid rgba(243, 239, 239, 0.87);width:100%;padding:0.5rem;text-align:left;}
-.enter{width:7rem;height:3rem;background-color:red;color:#fff;margin-left:8rem;border-radius:0.2rem;font-size:1rem;}
+.checkout{position:fixed;bottom:3rem;border-top:1px solid rgba(243, 239, 239, 0.87);width:100%;padding:0.5rem;text-align:left;z-index:9999;background-color:#fff;}
+.enter{position:absolute;top:-1rem;width:7rem;height:3rem;background-color:red;color:#fff;margin-left:8rem;border-radius:0.2rem;font-size:1rem;}
 .allprice{color:red;font-size:1.2rem;}
 .allselect{margin-right:1rem;}
+.subtotal{margin-left:10rem;}
+.subtotal1{color:red;font-size:1.2rem;}
+.delgood{display:inline-block;width:2rem;height:1rem;position:absolute;top:3.5rem;right:1rem;background-color:red;color:#fff;}

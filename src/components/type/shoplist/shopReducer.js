@@ -15,6 +15,6 @@ export default function shopReducer(state = {}, action){
             newState.error = action.error
             break;
     }
-    console.log(newState)
+    
     return newState;
 }
