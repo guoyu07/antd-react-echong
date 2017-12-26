@@ -1,10 +1,11 @@
 import React from 'react'
-import { Button, WhiteSpace, WingBlank,NavBar,Icon,List} from 'antd-mobile';
+import { Button, WhiteSpace, WingBlank,NavBar,Icon,List,Modal} from 'antd-mobile';
 import {connect} from 'react-redux';
 import { hashHistory } from 'react-router';
 import './indentComponent.css'
 import '../../home/font/iconfont.css'
 import * as paymentAction from './paymentAction'
+const alert = Modal.alert;
 
 const Item = List.Item;
 const Brief = Item.Brief;
@@ -16,7 +17,16 @@ const Brief = Item.Brief;
     }
     payment(){
         console.log(this.props.location.query.orderid)
-        this.props.getPayment(this.state.url,{orderid:this.props.location.query.orderid,orderstate:2})
+        
+        alert('Buy Buy Buy', '付款成功', [
+            { text: '留在原地'},
+            {
+                text: '确定',
+                onPress: () =>{
+                    this.props.getPayment(this.state.url,{orderid:this.props.location.query.orderid,orderstate:2})
+                  hashHistory.push('/home');}
+            },
+          ])
     }
     componentDidMount(){
         console.log(this.props.paymentset)
@@ -37,7 +47,7 @@ const Brief = Item.Brief;
                 </NavBar>
                 <div className="mydetail">
                     <h2>
-                        <span>邓厚锻</span>
+                        <span>{window.localStorage.username}</span>
                         <span>1357454654</span>
                     </h2>
                     <p>
