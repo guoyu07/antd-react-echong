@@ -10,6 +10,7 @@ import * as typeAction from './typeAction';
  class TypeComponent extends React.Component{
     state={
         url:'goods.php',
+        carurl:'goodcart.php',
         title:'狗狗服饰'
     }
     componentDidMount(){
@@ -17,6 +18,10 @@ import * as typeAction from './typeAction';
 
         this.props.getDatazx(this.state.url, {title:this.state.title})
         $('.am-tabs-tab-bar-wrap').css({display:'block'})
+    }
+    cart(event){
+      console.log(event)
+      //this.props.getType(this,.state.carturl,{orderId:})
     }
     change(event){
       console.log(event.target.parentNode.parentNode.id)
@@ -29,7 +34,7 @@ import * as typeAction from './typeAction';
           }
         })
         console.log(666);
-        this.props.getType(this.state.url, {title:this.state.title})
+        this.props.getDatazx(this.state.url, {title:this.state.title})
 
 
     }
@@ -90,7 +95,10 @@ import * as typeAction from './typeAction';
                                                     <h3>{obj.goodname}</h3>
                                                     <p>￥{obj.goodprice}</p>
                                                     <span className='span'>互动：(100%好评) 售出：18</span>
-                                                    <Button type="primary" size='small' >添加到购物车</Button>
+                                                    <Button type="primary" size='small'
+                                                      onClick={this.cart.bind(this)}
+
+                                                     >添加到购物车</Button>
                                                 </li>
                                             </ul>
                                         

@@ -14,7 +14,9 @@ class LoginComponent extends React.Component{
         url:'login.php'
     }
 
-    componentWillUpdate(nextProps, nextState){         
+    componentWillUpdate(nextProps, nextState){
+        
+            
         if(nextProps.logintype){
             if(nextProps.logintype == 0){
                 nextState.show = true;
@@ -44,6 +46,7 @@ class LoginComponent extends React.Component{
     }
 
     login(){
+        console.log(this.refs.usernameLogin.value)
         this.props.getLogin(this.state.url, {username:this.refs.usernameLogin.value,password:this.refs.passwordLogin.value})
         
     }

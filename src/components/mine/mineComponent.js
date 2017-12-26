@@ -14,6 +14,7 @@ export default class MineComponent extends React.Component{
     componentDidMount(){      
       var storage = window.localStorage;
       if(storage.username){ 
+          
         this.refs.mineLogin.style.display='none';
         this.refs.minename.style.display="block";
         this.refs.mineimg.style.display="block";
@@ -33,8 +34,9 @@ export default class MineComponent extends React.Component{
           
       }
     }
-    orderlist(event) {
-        hashHistory.push('orderlist')
+    orderlist(page) {
+        hashHistory.push({ pathname: 'orderlist', query:{page:page}})
+        
     }
     petinformation(event){
         hashHistory.push('petinformation')
@@ -81,21 +83,21 @@ export default class MineComponent extends React.Component{
                 </div>
                 <div>
                     <ul className="order">
-                        <li>
+                        <li onClick={this.orderlist.bind(this,1)}>
                             <div className="iconfont icon-fukuan"></div>
-                            <span>待付款</span>
+                            <span ref="0">待付款</span>
                         </li>
-                        <li>
+                        <li onClick={this.orderlist.bind(this,2)}>
                             <div className="iconfont icon-liwu"></div>
-                            <span>待收货</span>
+                            <span ref="1">待收货</span>
                         </li>
-                        <li>
+                        <li onClick={this.orderlist.bind(this,3)}>
                             <div className="iconfont icon-pingjia"></div>
-                            <span>待评价</span>
-                        </li>
-                        <li className="last" onClick={this.orderlist}>
+                            <span ref="2">待评价</span>
+                        </li> 
+                        <li className="last" onClick={this.orderlist.bind(this,0)}>
                             <div className="iconfont icon-dingdan"></div>
-                            <span>全部订单</span>
+                            <span ref="3">全部订单</span>
                         </li>
                     </ul>
                     <ul className="order">
