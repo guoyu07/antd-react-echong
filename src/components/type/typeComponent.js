@@ -67,7 +67,7 @@ import * as typeAction from './typeAction';
                         ref={ref => this.manualFocusInst = ref}
                       />
                       <WhiteSpace />
-                     <div style={{ height: '28rem' }}>
+                     <div style={{ height: '33rem' }}>
                         <WhiteSpace />
                         <Tabs tabs={tabs}
                           initalPage={'t2'}
@@ -97,7 +97,6 @@ import * as typeAction from './typeAction';
                                                     <span className='span'>互动：(100%好评) 售出：18</span>
                                                     <Button type="primary" size='small'
                                                       onClick={this.cart.bind(this)}
-
                                                      >添加到购物车</Button>
                                                 </li>
                                             </ul>

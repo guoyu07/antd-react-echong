@@ -1,4 +1,4 @@
-import React from 'react'
+    import React from 'react'
 import { TabBar,WingBlank,WhiteSpace } from 'antd-mobile';
 import 'antd-mobile/dist/antd-mobile.css';
 import { hashHistory } from 'react-router';

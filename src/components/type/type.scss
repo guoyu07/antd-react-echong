@@ -19,29 +19,36 @@ ul,li{
     visibility:hidden;
     zoom:1;
 } 
+@media screen and (device-aspect-ratio: 667/375) {
 
+
+}
     #zx{
 
         .list_zx{
             margin-top: 1rem;
             li{
+                margin-top: 1rem;
                 &.list_img{
                     vertical-align: middle;
+                    margin-left: 1rem;
+
                     img{
                         width: 5rem;
                     }
 
                 }
                 &.list_con{
-                    width:12rem;
+                    width:50%;
                     text-align:left;
-                    
+                    font-size: 1rem;
                    .am-button{
                         width: 7.142857rem;
                         height: 1.428571rem;
                         line-height: 1.428571rem;
                         span{
                             font-size: #fff;
+                            font-size: 0.8rem;
 
                         }
                    }
@@ -57,6 +64,12 @@ ul,li{
                 
             }
            
-
+             
+        }
+        .am-tabs-vertical .am-tabs-tab-bar-wrap {
+                 height: 41%;
+        }
+        .am-tabs-default-bar-left .am-tabs-default-bar-tab {
+            border-right: 1PX solid #ddd;
         }
     }

@@ -1,18 +1,9 @@
 export function getData(_url, _params){
     return {
-        types: ['shop','shopsome'],
+        types: ['shop','shopsome','requestError'],
         url:_url,
         method:'post',
         params: _params
 
     }
-} 
-export function insertcart(_url,_params){
-    return {
-        types: ['shopcart','shopsomecart'],
-        url:_url,
-        method:'post',
-        params: _params
-
-    }
-} 
+}
