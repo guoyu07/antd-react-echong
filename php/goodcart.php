@@ -27,15 +27,5 @@
     $sql="insert into orderlist(goodpic,orderstate,ordertime,gooddetail,goodcolor,orderid,username,goodname,goodnumber,goodprice,subtotal) values ('$goodpic','$orderstate','$ordertime','$gooddetail','$goodcolor','$orderId','$username','$goodname','$goodnumber','$goodprice','$subtotal')";
 
     $result = excute($sql);
-    
-    if ($result===TRUE) {
-        // 写入成功
-        echo "ok";
-    } else {
-        // 写入失败
-        echo "Error: " . $sql . "<br>" . $conn->error;
-    }
-
- 
 
 ?>

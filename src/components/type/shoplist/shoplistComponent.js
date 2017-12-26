@@ -13,7 +13,7 @@ const Brief = Item.Brief;
              
     state={
         url:'goodlist.php',
-        carurl:'goodcart.php',
+        carurl:'goodlist.php',
     }
     componentDidMount(){
         this.props.getData(this.state.url,this.props.location.query)
@@ -29,18 +29,21 @@ const Brief = Item.Brief;
         var str = d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate();
         var storage = window.localStorage;  
         var data = JSON.parse(this.props.dataset.text).data1[0]
+        data.id = this.props.location.query.id
+        data.title = this.props.location.query.title
         data.ordertime = str
         data.username = storage.username
         data.orderstate = 1
         data.orderId = Date.parse(new Date())
-        this.props.insertcart(this.state.carurl,data)
+        this.props.getData(this.state.carurl,data)
         console.log(storage.username)
+
     }
     render(){
         if(!this.props.dataset){
             return null
         }
-        console.log(this.props.dataset)
+        console.log()
         return   <div id='shoplist'>
                     <div>
                         <NavBar
