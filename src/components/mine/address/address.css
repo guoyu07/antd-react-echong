@@ -1,0 +1,7 @@
+.individual{height:2rem;line-height: 2rem;}
+.addressusername{display:inline-block;margin: 0rem 0.5rem;color:#111;font-size:1rem;}
+.addressphone{display:inline-block;margin: 0rem 0.2rem;}
+.detailedly{height:3rem;padding:0 0.5rem;}
+.operationadd{height:2rem;background:#eee;line-height: 2rem;}
+.addtacitly{display:inline-block;width:50%;text-align:center;}
+.redactadd,.addremove{width:25%;text-align:center;display:inline-block;}

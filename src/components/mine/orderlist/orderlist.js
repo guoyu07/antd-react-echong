@@ -10,10 +10,19 @@ const alert = Modal.alert;
 
 class orderlist extends React.Component{
     state = {
-        url: 'allorder.php'
+        url: 'allorder.php',
+        moudledh:''
+    }
+    indent() {
+        hashHistory.push('indent')
     }
     orderlist(event) {
         //订单不同状态显示不同内容
+        if (event.title =="全部订单"){
+            this.setState({ moudledh:0})
+        } else if (event.title == "待收货"){
+            this.setState({ moudledh: 2 })
+        }
         this.props.getOrder(this.state.url, { category: event.title, username: window.localStorage.username})
     }
     mine(event) {
@@ -22,7 +31,6 @@ class orderlist extends React.Component{
     
     componentDidMount() {
         var storage = window.localStorage.username;
-        
         var category
         if (this.props.location.query.page==0){
             category = "全部订单"
@@ -79,7 +87,7 @@ class orderlist extends React.Component{
                                     }()}</span></div>
                                     <div className="arrearage pay"><span>等待付款</span></div>
                                     <img src={item.goodpic} className="imglist" /><span>{item.goodname}</span>
-                                    <div> <input type="button" value="去付款" className="buttonpay" /></div>
+                                    <div> <input type="button" value="去付款" className="buttonpay" onClick={this.indent}/></div>
                                 </div>
                             } else if (item.orderstate == 3) {
                                 return <div key={idx} className="orderlist clearfix">
@@ -104,8 +112,8 @@ class orderlist extends React.Component{
                                             text: 'Ok',
                                             onPress: () => new Promise((resolve) => {
                                                 setTimeout(resolve, 500);
-                                                
-                                                this.props.getOrder(this.state.url, { orderid: item.orderid})
+                                                this.props.getOrder(this.state.url, { orderid: item.orderid, username: window.localStorage.username, moudledh:this.state.moudledh})
+                                                console.log(this)
                                             }),
                                         },
                                     ])}><span>确认收货</span></div>

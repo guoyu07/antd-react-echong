@@ -108,8 +108,7 @@ class AddeditComponent extends React.Component {
                 </DatePicker>
             </List>
             <input type="button" value="保存" className="petbtn" onClick={this.addedit.bind(this)}/>
-            
-        </div>)
+            </div>)
     }
 }
 const addedit = function (state) {

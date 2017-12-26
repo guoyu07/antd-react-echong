@@ -21,7 +21,6 @@ export function ajaxMiddleware(api){
                         type: a,
                         response:res
                     })
-                   
                 }).catch(error => {
                     api.dispatch({
                         type: c,

@@ -13,7 +13,7 @@ class PeteditComponent extends React.Component {
         hashHistory.push('petinformation')
     }
     petedits(){
-        this.props.peteditAction('petedit.php', { username: window.localStorage.username,petid: this.props.location.query.petid, nickname: this.refs.nickname.value, species: this.refs.species.value, state: this.refs.state.value, sex: this.refs.sexx.value, datebirth: this.refs.datebirth.value})
+        this.props.peteditAction('petedit.php', {username: window.localStorage.username,petid: this.props.location.query.petid, nickname: this.refs.nickname.value, species: this.refs.species.value, state: this.refs.state.value, sex: this.refs.sexx.value, datebirth: this.refs.datebirth.value})
     }
     render(){
         if (!this.props.information) {
@@ -29,7 +29,6 @@ class PeteditComponent extends React.Component {
                 {function () {
                     if (!window.localStorage.username) {
                         return <div style={{ height: '40rem' }} className="gologin">
-
                         </div>
                     }
                 }()}

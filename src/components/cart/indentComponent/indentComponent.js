@@ -35,6 +35,9 @@ const Brief = Item.Brief;
             hashHistory.push('/home')
         }
     }
+    cart(){
+        hashHistory.push('cart')
+    }
     render(){
         return(
             <div>

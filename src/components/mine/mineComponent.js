@@ -47,6 +47,9 @@ export default class MineComponent extends React.Component{
     minelogin(){
         hashHistory.push('login')
     }
+    AddressComponent(){
+        hashHistory.push('AddressComponent')
+    }
     outAccount(){
         
         if(window.confirm('你确定退出登录？')){
@@ -138,6 +141,10 @@ export default class MineComponent extends React.Component{
                         </li>
                         <li className="clearfix">
                             <span className="mainleft"><i className="iconfont icon-jilu"></i>退换货记录</span>
+                            <span className="mainright iconfont icon-you"></span>
+                        </li>
+                        <li className="clearfix" onClick={this.AddressComponent}>
+                            <span className="mainleft"><i className="iconfont icon-jilu"></i>地址管理</span>
                             <span className="mainright iconfont icon-you"></span>
                         </li>
                         <li className="clearfix">

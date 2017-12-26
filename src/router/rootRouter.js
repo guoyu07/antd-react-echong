@@ -18,6 +18,8 @@ import ChangePwdComponent from '../components/mine/changePwd/changePwdComponent'
 import CommitComponent from '../components/type/shoplist/commit/commitComponent'
 import IndentComponent from '../components/cart/indentComponent/indentComponent'
 import AddeditComponent from '../components/mine/Petinformation/addedit/addeditComponent'
+import AddressComponent from "../components/mine/address/addressComponent";
+import AddRegionComponent from "../components/mine/address/addRegion/addRegionComponent";
 
 export default (
 <Route path="aa">
@@ -42,6 +44,7 @@ export default (
     <Route path="/ChangePwdComponent" component={ChangePwdComponent}></Route>
     <Route path="/indent" component={IndentComponent}></Route>
     <Route path="/AddeditComponent" component={AddeditComponent}></Route>
-       
+    <Route path="/AddressComponent" component={AddressComponent}></Route>
+    <Route path="/AddRegion" component={AddRegionComponent}></Route>
 </Route>
 )

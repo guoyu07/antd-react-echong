@@ -1,8 +1,8 @@
 //http://visionmedia.github.io/superagent/
-import request from 'superagent'
+import request from 'superagent';
 
 
-const LOCAL_SERVER = 'http://10.3.135.29:9527/';
+const LOCAL_SERVER = 'http://10.3.135.228:9527/';
 
 
 const DEV_SERVER = '';

@@ -15,8 +15,6 @@ class LoginComponent extends React.Component{
     }
 
     componentWillUpdate(nextProps, nextState){
-        
-            
         if(nextProps.logintype){
             if(nextProps.logintype == 0){
                 nextState.show = true;
