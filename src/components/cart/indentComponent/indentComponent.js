@@ -4,12 +4,26 @@ import {connect} from 'react-redux';
 import { hashHistory } from 'react-router';
 import './indentComponent.css'
 import '../../home/font/iconfont.css'
+import * as paymentAction from './paymentAction'
+
 const Item = List.Item;
 const Brief = Item.Brief;
 
-export default class IndentComponent extends React.Component{
+ class IndentComponent extends React.Component{
     state = {
         disabled: false,
+        url:'payment.php'
+    }
+    payment(){
+        console.log(this.props.location.query.orderid)
+        this.props.getPayment(this.state.url,{orderid:this.props.location.query.orderid,orderstate:2})
+    }
+    componentDidMount(){
+        console.log(this.props.paymentset)
+        if(this.props.paymentset){
+            alert('结账成功')
+            hashHistory.push('/home')
+        }
     }
     render(){
         return(
@@ -18,7 +32,7 @@ export default class IndentComponent extends React.Component{
                     mode="light"
                     style={{borderBottom:'1px solid #ccc'}}
                     icon={<Icon type="left" />}
-                    onLeftClick={() => console.log('onLeftClick')}
+                    onLeftClick={() =>this.props.router.goBack()}
                     >订单结算
                 </NavBar>
                 <div className="mydetail">
@@ -45,16 +59,24 @@ export default class IndentComponent extends React.Component{
                 <List renderHeader={() => ' 订单备注（外包快递的一切配送服务要求，因各地差异可能无法满足，请您谅解）'} className="my-list">
                 </List>
                  <Item extra="3.78千克(kg)" arrow="horizontal" onClick={() => {}}>重量总计<span style={{background:'#ccc',borderRadius:'50%',padding:'0.1rem 0.4rem',margin:'0 0.5rem'}}>?</span></Item>
-                 <Item extra="$9527.00" arrow="horizontal" onClick={() => {}}>商品金额</Item>
-                 <Item extra="¥5.50" arrow="horizontal" onClick={() => {}}>运费</Item>
-                 <Item extra="¥15.00" arrow="horizontal" onClick={() => {}}>现金券抵押</Item>
+                 <Item extra={"¥"+this.props.location.query.allPrice} arrow="horizontal" onClick={() => {}}>商品金额</Item>
+                 <Item extra="¥5.00" arrow="horizontal" onClick={() => {}}>运费</Item>
+                 <Item extra="¥0.00" arrow="horizontal" onClick={() => {}}>现金券抵押</Item>
                  <Item extra="9527个" arrow="horizontal" onClick={() => {}}>赠送Q币</Item>
                  <div className="indent_bot">
-                    <p>总额：<span>¥</span><span>180.00</span></p>
-                     <p><span>提交订单</span></p>
+                    <p>总额：<span>¥</span><span>{Number(this.props.location.query.allPrice)+5}</span></p>
+                     <p><span onClick={this.payment.bind(this)}>提交订单</span></p>
                  </div>
       
             </div>
         )
     }
 }
+const paymentToState = function(state){ 
+    console.log(state)
+    return {
+        paymentset: state.payment.response
+    }
+}
+
+export default connect(paymentToState, paymentAction)(IndentComponent);

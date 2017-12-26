@@ -12,6 +12,7 @@ import homeList from '../components/home/homeList/homeListComponentReducer'
 import homeSearch from '../components/home/homeSearch/homeSearchReducer'
 import changepwd from '../components/mine/changePwd/changePwdReducer'
 import addedit from '../components/mine/Petinformation/addedit/addeditReducer'
+import payment from '../components/cart/indentComponent/paymentReducer'
 export default combineReducers({
-    datagrid, home, orderlist, petinfomation, register, login, typeReducer, shopReducer, homeList, cart, changepwd, homeSearch, addedit
+    datagrid, home, orderlist, petinfomation, register, login, typeReducer, shopReducer, homeList, cart, changepwd, homeSearch, addedit,payment
 })

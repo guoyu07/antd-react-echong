@@ -30,6 +30,7 @@ const Brief = Item.Brief;
         data.ordertime = str
         data.username = storage.username
         data.orderstate = 1
+        data.subtotal=data.price
         data.orderId = Date.parse(new Date())
         this.props.insertcart(this.state.carurl,data)
         console.log(storage.username)

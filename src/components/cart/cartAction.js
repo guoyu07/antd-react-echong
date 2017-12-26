@@ -6,7 +6,7 @@ export function getCart(_url, _params){
         params: _params
     }
 }
-export function getNum(){
+export function getNum(_url, _params){
     return{
         types: ['cartRequested','cartbeforeRequest','cartrequestError'],
         url: _url,

@@ -25,7 +25,7 @@
     
     $subtotal = isset($_POST['subtotal']) ? $_POST['subtotal'] :'';
                                                                              
-    $sql="insert into orderlist(goodpic,orderstate,ordertime,gooddetail,goodcolor,orderid,username,goodname,goodnumber,goodprice,subtotal) values ('$goodpic','$orderstate','$ordertime','$gooddetail','$goodcolor','$orderId','$username','$goodname','$goodnumber','$goodprice','$subtotal')";
+    $sql="insert into orderlist(goodpic,orderstate,ordertime,gooddetail,goodcolor,orderid,username,goodname,goodnumber,goodprice,subtotal) values ('$goodpic','1','$ordertime','$gooddetail','$goodcolor','$orderId','$username','$goodname','1','$goodprice','$subtotal')";
 
     $result = excute($sql);
     
