@@ -15,7 +15,9 @@ import addedit from '../components/mine/Petinformation/addedit/addeditReducer'
 import address from '../components/mine/address/addressReducer'
 import addRegion from '../components/mine/address/addRegion/addRegionReducer'
 import commit from '../components/type/shoplist/commit/commitReducer'
+import payment from '../components/cart/indentComponent/paymentReducer'
+
 export default combineReducers({
-    datagrid, home, orderlist, petinfomation, register, login, typeReducer, shopReducer, homeList, cart, changepwd,homeSearch,addedit,commit, address, addRegion
-    
+    datagrid, home, orderlist, petinfomation, register, login, typeReducer, shopReducer, homeList, cart, changepwd,
+    homeSearch,addedit,commit, address, addRegion,payment
 })

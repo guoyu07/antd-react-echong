@@ -13,8 +13,8 @@
 .jia,.jian,.nub{display:inline-block;border:1px solid rgba(243, 239, 239, 0.87);width:1.5rem;height:1.5rem;text-align:center;line-height:1.5rem;}
 .jian{margin-left:1rem;}
 .jia{color:red;}
-.checkout{position:fixed;bottom:3rem;border-top:1px solid rgba(243, 239, 239, 0.87);width:100%;padding:0.5rem;text-align:left;z-index:9999;background-color:#fff;}
-.enter{position:absolute;top:-1rem;width:7rem;height:3rem;background-color:red;color:#fff;margin-left:8rem;border-radius:0.2rem;font-size:1rem;}
+.checkout{position:fixed;height:3.5rem;line-height:3.5rem;bottom:3rem;border-top:1px solid rgba(243, 239, 239, 0.87);width:100%;padding:0.5rem;text-align:left;z-index:9999;background-color:#fff;}
+.enter{position:fixed;bottom:3rem;width:7rem;height:3rem;background-color:red;color:#fff;margin-left:8rem;border-radius:0.2rem;font-size:1rem;}
 .allprice{color:red;font-size:1.2rem;}
 .allselect{margin-right:1rem;}
 .subtotal{margin-left:10rem;}

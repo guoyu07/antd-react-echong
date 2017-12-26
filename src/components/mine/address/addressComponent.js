@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { hashHistory } from 'react-router'
 import { NavBar, Icon } from 'antd-mobile';
 import * as adressAction from './addressAction'
+import './address.css'
 
 class AddressComponent extends React.Component {
     mine(event) {
@@ -38,15 +39,14 @@ class AddressComponent extends React.Component {
                 
                 {this.props.address.map(function (item, idx) {
                     return (<div key={idx}>
-                        <div>
+                        <div className="individual">
                             <span className="addressusername">{item.username}</span><span className="addressphone">{item.phonenumber}</span>
                         </div>
-                        <div>{item.addressee}{item.detailedly}</div>
-                        <div>
-                            <span>当前默认</span>
-                            <span>编辑</span>
-                            <span>删除</span>
-                            
+                        <div className="detailedly">{item.addressee}{item.detailedly}</div>
+                        <div className="operationadd">
+                            <span className="addtacitly">当前默认</span>
+                            <span className="redactadd"><a className="icon-pingjia1 iconfont"/>编辑</span>
+                            <span className="addremove"><a className="icon-shanchu iconfont" />删除</span>
                         </div>
                     </div>)
                 })}

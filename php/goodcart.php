@@ -23,8 +23,14 @@
     $subtotal = isset($_post['subtotal'])?$_post['subtotal'] : '';
     $orderstate = isset($_POST['orderstate']) ? $_POST['orderstate'] :'1';
     
+<<<<<<< HEAD
+    $subtotal = isset($_POST['subtotal']) ? $_POST['subtotal'] :'';
+                                                                             
+    $sql="insert into orderlist(goodpic,orderstate,ordertime,gooddetail,goodcolor,orderid,username,goodname,goodnumber,goodprice,subtotal) values ('$goodpic','1','$ordertime','$gooddetail','$goodcolor','$orderId','$username','$goodname','1','$goodprice','$subtotal')";
+=======
 
     $sql="insert into orderlist(goodpic,orderstate,ordertime,gooddetail,goodcolor,orderid,username,goodname,goodnumber,goodprice,subtotal) values ('$goodpic','$orderstate','$ordertime','$gooddetail','$goodcolor','$orderId','$username','$goodname','$goodnumber','$goodprice','$subtotal')";
+>>>>>>> 056e251a2d8b29407fe4b81390794e63e136cf21
 
     $result = excute($sql);
 

@@ -9,6 +9,7 @@
     $username = isset($_GET['username']) ? $_GET['username'] : '';
     $category = isset($_GET['category']) ? $_GET['category'] : '';
     $orderid = isset($_GET['orderid']) ? $_GET['orderid'] : '';
+    $moudledh = isset($_GET['moudledh']) ? $_GET['moudledh'] : '';
 
     if($category=='待付款'){
         $sql = "select * from orderlist where username ='$username' and orderstate='1'";
@@ -16,11 +17,16 @@
         $sql = "select * from orderlist where username ='$username' and orderstate='2'";
     }else if($category=='待评价'){
         $sql = "select * from orderlist where username ='$username' and orderstate='4'";
-    }else if($orderid){
+    }else if($orderid && $moudledh==0){
         $changepstate = "UPDATE orderlist SET orderstate='4' WHERE orderid='$orderid'";
         excute($changepstate);
         $sql = "select * from orderlist where username ='$username'";
-    }else if($category=='全部订单'){
+    }else if($orderid && $moudledh==2){
+        $changepstate = "UPDATE orderlist SET orderstate='4' WHERE orderid='$orderid'";
+        excute($changepstate);
+        $sql = "select * from orderlist where username ='$username' and orderstate='2'";
+    }
+    else if($category=='全部订单'){
         $sql = "select * from orderlist where username ='$username'";
     }
     

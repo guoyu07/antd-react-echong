@@ -9,9 +9,11 @@ import { hashHistory } from 'react-router';
 class CartComponent extends React.Component{
     state={
         url:'cart.php',
+        payurl:'payment.php',
         show:false,
-        allPrice:0,
-
+        allPrice:0
+        
+       
     }
     home(){
         hashHistory.push('home')
@@ -28,45 +30,71 @@ class CartComponent extends React.Component{
         }else{
             // this.refs.cc.style.display="block";
         }
-        this.jisuan()
-    }
-    oneCheck(e){
-        var lis =document.getElementsByClassName('goodlist')[1].children;  
-        if(e.target.checked){
-            this.state.allPrice=lis[d].children[1].children[5].innerText
-        }
+
     }
     componentWillUpdate(nextProps, nextState){
 
       
     }
-    jia(a,b,c,d){
-        var newNum=Number(b)+1;
-        this.props.getCart(this.state.url,{username:window.localStorage.username,addNum:newNum,orderid:a})
-        this.jisuan()
-        var lis =document.getElementsByClassName('goodlist')[1].children;        
-        console.log(lis[d].children[1].children[5].innerText)
-        
+    oneCheck(a,b){
+        var lis =document.getElementsByClassName('goodlist')[1].children; 
+        console.log(lis[a].children[0].children[0]) 
+        if(lis[a].children[0].children[0].checked){
+            
+            var sum = Number(lis[a].children[1].children[5].innerText)+this.state.allPrice
+            this.setState({allPrice:sum})
+            this.setState({orderid:b})       
+        }
+        if(!lis[a].children[0].children[0].checked){
+           
+            var sum = this.state.allPrice-Number(lis[a].children[1].children[5].innerText)
+            this.setState({allPrice:sum})            
+        }
     }
-    jian(a,b,c,d){
-        // var newNum=Number(b)-1;
-        // this.props.getCart(this.state.url,{username:window.localStorage.username,addNum:newNum,orderid:a})
     
-        // var lis =document.getElementsByClassName('goodlist')[1].children;
-        // console.log(lis.length)
-        // console.log(lis[d].children[1].children[5].innerText)
-        // this.setState({
-        //     allPrice:(lis[d].children[1].children[5].innerText)*b
-        // })
-        // for(var i=0;i<lis.length;i++){
-        // }
+    jian(a,b,c,d){
+        var lis =document.getElementsByClassName('goodlist')[1].children; 
+        var newNum=Number(b)-1;
+        this.props.getNum(this.state.url,{username:window.localStorage.username,addNum:newNum,orderid:a})
+        if(lis[d].children[0].children[0].checked){
+            if(b<2){   
+                var sum = this.state.allPrice
+                this.setState({allPrice:sum})   
+            }else{
+                var sum = this.state.allPrice-Number(c)
+                this.setState({allPrice:sum}) 
+            }
+        }
     }
-    jisuan(){
+            
+            jia(a,b,c,d){
+                var lis =document.getElementsByClassName('goodlist')[1].children;         
+                var newNum=Number(b)+1;
+                this.props.getCart(this.state.url,{username:window.localStorage.username,addNum:newNum,orderid:a})
+                if(lis[d].children[0].children[0].checked){
+                    console.log(lis[d].children[1].children[5].innerText)
+                    var sum = this.state.allPrice+Number(c)
+                    this.setState({allPrice:sum})
+                }       
+                
+                
+            }
+            
+            jisuan(){
+                console.log(this.state.orderid)
+                
+                hashHistory.push({
+            pathname:'/indent',
+            query:{
+                allPrice:this.state.allPrice ,
+                orderid:this.state.orderid
+            }
+        })
 
     }
     delete(a){
         this.props.getCart(this.state.url,{username:window.localStorage.username,deleteid:a})
-        this.jisuan()
+       
     }
     render(){
        
@@ -93,7 +121,7 @@ class CartComponent extends React.Component{
                                 item.subtotal=item.goodnumber*item.goodprice;
                                 return      <li className="goodli" key={index}>
                                                 <h3>
-                                                    <input type="checkbox" className="xz oneCheck" />
+                                                    <input type="checkbox" className="xz oneCheck" onClick={this.oneCheck.bind(this,index,item.orderid)}/>
                                                     <span><img   className="image" src={item.goodpic}/></span>
                                                     <div className="gooddetail">
                                                         <span>{item.goodname}&nbsp;</span>
