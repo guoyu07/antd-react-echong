@@ -12,6 +12,9 @@ class orderlist extends React.Component{
     state = {
         url: 'allorder.php'
     }
+    indent() {
+        hashHistory.push('indent')
+    }
     orderlist(event) {
         //订单不同状态显示不同内容
         this.props.getOrder(this.state.url, { category: event.title, username: window.localStorage.username})
@@ -79,7 +82,7 @@ class orderlist extends React.Component{
                                     }()}</span></div>
                                     <div className="arrearage pay"><span>等待付款</span></div>
                                     <img src={item.goodpic} className="imglist" /><span>{item.goodname}</span>
-                                    <div> <input type="button" value="去付款" className="buttonpay" /></div>
+                                    <div> <input type="button" value="去付款" className="buttonpay" onClick={this.indent}/></div>
                                 </div>
                             } else if (item.orderstate == 3) {
                                 return <div key={idx} className="orderlist clearfix">

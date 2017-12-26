@@ -15,8 +15,6 @@ class LoginComponent extends React.Component{
     }
 
     componentWillUpdate(nextProps, nextState){
-        
-            
         if(nextProps.logintype){
             console.log(nextProps.loginset);
             console.log(this.props.loginset)

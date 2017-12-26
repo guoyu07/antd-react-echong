@@ -1,5 +1,5 @@
 .pets{display:block;height:2rem;border-bottom:1px solid #ccc;margin-left:1rem;margin-right: 1rem;}
 .input{width:8rem;height:2rem;font-size:1rem;border:none;}
-.petedit{display:inline-block;width:8rem;height:2rem;font-size:1rem;line-height: 2rem;}
+.petedit{display:inline-block;width:8rem;height:2rem;font-size:1rem;line-height: 2rem;text-align: center;}
 .petbtn{margin-top:1rem;width:18rem;height:2rem;background-color:rgba(238, 13, 13, 0.904);border:none;border-radius: 0.5rem;font-size:1rem;color:#fff;margin: 0 auto;display:block;}
 .nicknameedit{display: block;text-align: center;font-size: 1.5rem;margin: 1rem 0;border-bottom: 1px solid #ccc}

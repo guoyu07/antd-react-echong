@@ -11,6 +11,9 @@ export default class IndentComponent extends React.Component{
     state = {
         disabled: false,
     }
+    cart(){
+        hashHistory.push('cart')
+    }
     render(){
         return(
             <div>
@@ -18,7 +21,7 @@ export default class IndentComponent extends React.Component{
                     mode="light"
                     style={{borderBottom:'1px solid #ccc'}}
                     icon={<Icon type="left" />}
-                    onLeftClick={() => console.log('onLeftClick')}
+                    onLeftClick={() =>this.cart()}
                     >订单结算
                 </NavBar>
                 <div className="mydetail">
