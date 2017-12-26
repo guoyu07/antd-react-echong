@@ -1,12 +1,12 @@
-export default function shopReducer(state = {}, action){
+export default function commitReducer(state = {}, action){
     var newState = JSON.parse(JSON.stringify(state));
 
     switch(action.type){
 
-        case 'shopsome':
+        case 'commitsome' :
             newState.status = 0;
             break;
-        case 'shop':
+        case 'commit'  :
             newState.status = 1;
             newState.response = action.response;
             break;
@@ -15,6 +15,5 @@ export default function shopReducer(state = {}, action){
             newState.error = action.error
             break;
     }
-    //console.log(newState)
     return newState;
 }

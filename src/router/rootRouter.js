@@ -15,6 +15,7 @@ import HomeListComponent from '../components/home/homeList/homeListComponent'
 import HomeSearchComponent from '../components/home/homeSearch/homeSearchComponent'
 import PeteditComponent from '../components/mine/Petinformation/petedit/peteditComponent'
 import ChangePwdComponent from '../components/mine/changePwd/changePwdComponent'
+import CommitComponent from '../components/type/shoplist/commit/commitComponent'
 import IndentComponent from '../components/cart/indentComponent/indentComponent'
 import AddeditComponent from '../components/mine/Petinformation/addedit/addeditComponent'
 import AddressComponent from "../components/mine/address/addressComponent";
@@ -28,9 +29,9 @@ export default (
         <Route path="/home" component={HomeComponent}></Route>
         <Route path="/mine" component={MineComponent}></Route>
         <Route path="/cart" component={CartComponent}></Route>
-        <Route path="/type" component={TypeComponent}>
-        </Route>
+        <Route path="/type" component={TypeComponent}></Route>
         <Route path="/shoplist" component={ShoplistComponent}></Route>
+        <Route path="/commit" component={CommitComponent}></Route>
     </Route>
     <Route path="/orderlist" component={Orderlist}></Route>
     <Route path="/petinformation" component={Petinformation}></Route>

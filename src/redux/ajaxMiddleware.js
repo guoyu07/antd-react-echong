@@ -19,8 +19,9 @@ export function ajaxMiddleware(api){
                 http[method](url, params).then(res => {
                     api.dispatch({
                         type: a,
-                        response: res
+                        response:res
                     })
+                    console.log(res)
                 }).catch(error => {
                     api.dispatch({
                         type: c,

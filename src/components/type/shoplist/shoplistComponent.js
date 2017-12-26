@@ -13,32 +13,37 @@ const Brief = Item.Brief;
              
     state={
         url:'goodlist.php',
-        carurl:'goodcart.php',
+        carurl:'goodlist.php',
     }
     componentDidMount(){
-        console.log(this.props.location.query)
         this.props.getData(this.state.url,this.props.location.query)
         $('.am-tabs-tab-bar-wrap').css({display:'none'}) 
     }
-
+    commit(){
+        hashHistory.push('/commit')
+    }
  
     change(event){
         console.log(event.target)
         var d = new Date();
         var str = d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate();
         var storage = window.localStorage;  
-        var data = JSON.parse(this.props.dataset.text)[0]
+        var data = JSON.parse(this.props.dataset.text).data1[0]
+        data.id = this.props.location.query.id
+        data.title = this.props.location.query.title
         data.ordertime = str
         data.username = storage.username
         data.orderstate = 1
         data.orderId = Date.parse(new Date())
-        this.props.insertcart(this.state.carurl,data)
+        this.props.getData(this.state.carurl,data)
         console.log(storage.username)
+
     }
     render(){
         if(!this.props.dataset){
             return null
         }
+        console.log()
         return   <div id='shoplist'>
                     <div>
                         <NavBar
@@ -49,14 +54,30 @@ const Brief = Item.Brief;
                             <Icon key="0" type="search" style={{ marginRight: '16px' }} />,
                             <Icon key="1" type="ellipsis" />,
                           ]}
-                        >NavBar</NavBar>
+                        >{JSON.parse(this.props.dataset.text).data1[0].goodname }</NavBar>
                     </div>
-                    <ul className='list_zx clear'>
-                        <li className='list_img'><img src={JSON.parse(this.props.dataset.text)[0].goodpic} alt="" /></li>
-                        <List renderHeader={() => JSON.parse(this.props.dataset.text)[0].goodname } className="my-list">
-                            <Item extra={JSON.parse(this.props.dataset.text)[0].gooddetail}>￥19.80</Item>
+                    <ul className='list_zx clear' style={{marginBottom:'2.5rem'}}>
+                        <li className='list_img'><img src={JSON.parse(this.props.dataset.text).data1[0].goodpic} alt="" /></li>
+                        <List renderHeader={() => JSON.parse(this.props.dataset.text).data1[0].goodname } className="my-list">
+                            <Item extra={JSON.parse(this.props.dataset.text).data1[0].gooddetail} className = 'price'
+                            ><span className='price'>￥{JSON.parse(this.props.dataset.text).data1[0].goodprice}</span></Item>
                         </List>
-                        
+                        <List>
+                            <Item extra='地区' >{JSON.parse(this.props.dataset.text).data1[0].goodaddress}</Item>
+                        </List>
+                       <List  className="pinglun" style={{marginTop:'2rem'}}>
+                        <Item extra="好评率（100%）" arrow="horizontal" onClick={() => {}} className="my-commit"><span >商品评论</span></Item>
+                        {
+                            JSON.parse(this.props.dataset.text).data2.map(function(item,index){
+                                 return <Item extra={item.time} align="top" thumb="https://zos.alipayobjects.com/rmsportal/dNuvNrtqUztHCwM.png" multipleLine>
+                                 {item.username}<Brief>{item.detail}</Brief>
+                                </Item>
+                            }).slice(0,3)
+                        }
+                        <Item>
+                            <Button onClick={this.commit.bind(this)}>更多评论</Button>
+                        </Item>
+                      </List>
                     </ul>
                     <div className='add clearfix'>
                         <ul>
@@ -74,6 +95,7 @@ const Brief = Item.Brief;
   
 }
 const shopState = function(state){
+    console.log(state)
     return {
         dataset: state.shopReducer.response,
         status:state.shopReducer.status
