@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, WhiteSpace, WingBlank } from 'antd-mobile';
+import { Button, WhiteSpace, WingBlank,NavBar, Icon } from 'antd-mobile';
 import './login.css';
 import {connect} from 'react-redux';
 import * as loginAction from './loginAction';
@@ -18,8 +18,6 @@ class LoginComponent extends React.Component{
         
             
         if(nextProps.logintype){
-            console.log(nextProps.loginset);
-            console.log(this.props.loginset)
             if(nextProps.logintype == 0){
                 nextState.show = true;
             }else{
@@ -32,7 +30,7 @@ class LoginComponent extends React.Component{
                         var storage = window.localStorage;
                         storage.setItem('username',this.refs.usernameLogin.value);
                         storage.setItem('password',this.refs.passwordLogin.value);
-                        console.log(window.localStorage);
+                       
                         hashHistory.push('home')
                     }else if(this.refs.usernameLogin.value!=''){
                         alert('登陆账号或密码有误！')                     
@@ -61,9 +59,13 @@ class LoginComponent extends React.Component{
     render(){
         return (
             <div className="box1">
-                <Spinner show={this.state.show}/>
-                <div className="top"><span className="goback" onClick={this.props.router.goBack}>&lt;</span></div>
-                <h1 className="login">用户登录<span></span></h1>
+                <NavBar
+                    mode="light"
+                    icon={<Icon type="left" />}
+                    onLeftClick={() => this.props.router.goBack()}
+                >用户登录</NavBar>
+                <Spinner show={this.state.show}/>               
+                <h1 className="login"><span></span></h1>
                 <label className="label"><span className="span">用户名</span><input  type="text" placeholder="请输入用户名" className="input" ref="usernameLogin"/></label><br/>
                 <label className="label"><span className="span">密码</span><input  type="password" placeholder="请输入密码" className="input" ref="passwordLogin"/></label><br/>            
                 <input type="button" value="登录" onClick={this.login.bind(this)} className="button"/>

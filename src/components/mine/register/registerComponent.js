@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, WhiteSpace, WingBlank } from 'antd-mobile';
+import { Button, WhiteSpace, WingBlank,NavBar, Icon } from 'antd-mobile';
 import './register.css'
 import {connect} from 'react-redux'
 import * as registerAction from './registerAction'
@@ -46,8 +46,12 @@ class RegisterComponent extends React.Component{
     render(){
         return (
             <div className="box1">
-                <div className="top"><span className="goback" onClick={this.props.router.goBack}>&lt;</span></div>
-                <h1 className="register">用户注册</h1>
+                <NavBar
+                    mode="light"
+                    icon={<Icon type="left" />}
+                    onLeftClick={() => this.props.router.goBack()}
+                >用户注册</NavBar>
+                <h1 className="register"></h1>
                 <label className="label1"><span className="span1">用户名</span><input  type="text" placeholder="请输入用户名" className="input1" ref="usernameRegister"/></label><br/>
                 <label className="label1"><span className="span1">密码</span><input  type="password" placeholder="请输入密码" className="input1" ref="passwordRegister"/></label><br/>
                 <label className="label1"><span className="span1">确认密码</span><input  type="password" placeholder="请确认密码" className="input1" ref="passwordRegister1"/></label><br/>

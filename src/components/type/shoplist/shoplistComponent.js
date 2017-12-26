@@ -16,7 +16,6 @@ const Brief = Item.Brief;
         carurl:'goodcart.php',
     }
     componentDidMount(){
-        console.log(this.props.location.query)
         this.props.getData(this.state.url,this.props.location.query)
         $('.am-tabs-tab-bar-wrap').css({display:'none'}) 
     }
