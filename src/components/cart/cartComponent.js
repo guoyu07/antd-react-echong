@@ -33,12 +33,11 @@ class CartComponent extends React.Component{
 
     }
     componentWillUpdate(nextProps, nextState){
-
       
     }
     oneCheck(a,b){
         var lis =document.getElementsByClassName('goodlist')[1].children; 
-        console.log(lis[a].children[0].children[0]) 
+        // console.log(lis[a].children[0].children[0]) 
         if(lis[a].children[0].children[0].checked){
             
             var sum = Number(lis[a].children[1].children[5].innerText)+this.state.allPrice
@@ -92,6 +91,14 @@ class CartComponent extends React.Component{
         })
 
     }
+    allCheck(){          
+        if($(".allCheck")[1].checked){
+            $(".oneCheck").prop("checked",true);        
+            }else{          
+            $(".oneCheck").prop("checked",false);
+            }
+     
+    }
     delete(a){
         this.props.getCart(this.state.url,{username:window.localStorage.username,deleteid:a})
        
@@ -114,14 +121,14 @@ class CartComponent extends React.Component{
             return (
                 <div>
                     <h1 className="cart">购物车</h1>
-                    <h1 className="xuanze"><input type="checkbox" className="xz"/>全选</h1>
+                    <h1 className="xuanze"><input type="checkbox" className="xz allCheck" onClick={this.allCheck.bind(this)} name="allCheck"/>全选</h1>
                     <ul className="goodlist">
                         {
                             this.props.cartset.map(function(item,index){
                                 item.subtotal=item.goodnumber*item.goodprice;
                                 return      <li className="goodli" key={index}>
                                                 <h3>
-                                                    <input type="checkbox" className="xz oneCheck" onClick={this.oneCheck.bind(this,index,item.orderid)}/>
+                                                    <input type="checkbox" className="xz oneCheck" name="oneCheck" onClick={this.oneCheck.bind(this,index,item.orderid)}/>
                                                     <span><img   className="image" src={item.goodpic}/></span>
                                                     <div className="gooddetail">
                                                         <span>{item.goodname}&nbsp;</span>
@@ -146,7 +153,7 @@ class CartComponent extends React.Component{
                         }
                     </ul>
                     <div className="checkout">
-                        <input type="checkbox" className="allselect xz"/>
+                
                         <span>总额:</span><span className="allprice" ref="allMoney">{this.state.allPrice}</span>
                         <input type="button" value="去结账" className="enter"onClick={this.jisuan.bind(this)}/>
                     </div>    

@@ -48,6 +48,7 @@ export default class MineComponent extends React.Component{
         hashHistory.push('login')
     }
     outAccount(){
+        
         if(window.confirm('你确定退出登录？')){
             window.localStorage.clear();
             this.refs.mineLogin.style.display='block';    
