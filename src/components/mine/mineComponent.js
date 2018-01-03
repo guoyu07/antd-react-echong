@@ -51,18 +51,26 @@ export default class MineComponent extends React.Component{
         hashHistory.push('AddressComponent')
     }
     outAccount(){
+        alert('退出登录？', '', [
+            { text: '确定',
+            onPress: () =>this.ll
+        },
+            {
+            text: '取消',
+           
+            },
+        ])      
         
-        if(window.confirm('你确定退出登录？')){
-            window.localStorage.clear();
-            this.refs.mineLogin.style.display='block';    
-            this.refs.minename.style.display="none";
-            this.refs.mineimg.style.display="none"; 
-            this.refs.outbox.style.display="none" ;
-            console.log(window.localStorage);
-            return true;
-        }else{
-            return false;
-        }
+        
+        
+    }
+    ll(){
+        
+        this.refs.mineLogin.style.display='block';    
+        this.refs.minename.style.display="none";
+        this.refs.mineimg.style.display="none"; 
+        this.refs.outbox.style.display="none" ;
+        console.log(window.localStorage);
     }
     render(){
         return (
