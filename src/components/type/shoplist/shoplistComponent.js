@@ -24,7 +24,6 @@ const Brief = Item.Brief;
     }
  
     change(event){
-        console.log(event.target)
         var d = new Date();
         var str = d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate();
         var storage = window.localStorage;  
@@ -37,14 +36,12 @@ const Brief = Item.Brief;
         data.subtotal=data.price
         data.orderId = Date.parse(new Date())
         this.props.getData(this.state.carurl,data)
-        console.log(storage.username)
 
     }
     render(){
         if(!this.props.dataset){
             return null
         }
-        console.log()
         return   <div id='shoplist'>
                     <div>
                         <NavBar
@@ -70,7 +67,7 @@ const Brief = Item.Brief;
                         <Item extra="好评率（100%）" arrow="horizontal" onClick={() => {}} className="my-commit"><span >商品评论</span></Item>
                         {
                             JSON.parse(this.props.dataset.text).data2.map(function(item,index){
-                                 return <Item extra={item.time} align="top" thumb="https://zos.alipayobjects.com/rmsportal/dNuvNrtqUztHCwM.png" multipleLine>
+                                 return <Item key={index} extra={item.time} align="top" thumb="https://zos.alipayobjects.com/rmsportal/dNuvNrtqUztHCwM.png" multipleLine>
                                  {item.username}<Brief>{item.detail}</Brief>
                                 </Item>
                             }).slice(0,3)
@@ -96,7 +93,6 @@ const Brief = Item.Brief;
   
 }
 const shopState = function(state){
-    console.log(state)
     return {
         dataset: state.shopReducer.response,
         status:state.shopReducer.status

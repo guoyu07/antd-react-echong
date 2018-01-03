@@ -2,7 +2,7 @@
 import request from 'superagent';
 
 
-const LOCAL_SERVER = 'http://10.3.135.102:9527/';
+const LOCAL_SERVER = 'http://10.3.135.96:9527/';
 
 
 const DEV_SERVER = '';
