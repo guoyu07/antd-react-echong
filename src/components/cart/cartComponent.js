@@ -1,10 +1,11 @@
 import React from 'react'
-import { Button, WhiteSpace, WingBlank } from 'antd-mobile';
+import { Button, WhiteSpace, WingBlank ,SearchBar,Tabs,Badge,Modal,Toast} from 'antd-mobile';
 import * as cartAction from './cartAction'
 import './cart.css'
 import $ from 'jquery';
 import {connect} from 'react-redux';
 import { hashHistory } from 'react-router';
+const alert = Modal.alert;
 
 class CartComponent extends React.Component{
     state={
@@ -37,9 +38,7 @@ class CartComponent extends React.Component{
     }
     oneCheck(a,b){
         var lis =document.getElementsByClassName('goodlist')[1].children; 
-        // console.log(lis[a].children[0].children[0]) 
         if(lis[a].children[0].children[0].checked){
-            
             var sum = Number(lis[a].children[1].children[5].innerText)+this.state.allPrice
             this.setState({allPrice:sum})
             this.setState({orderid:b})       
@@ -66,36 +65,52 @@ class CartComponent extends React.Component{
         }
     }
             
-            jia(a,b,c,d){
-                var lis =document.getElementsByClassName('goodlist')[1].children;         
-                var newNum=Number(b)+1;
-                this.props.getCart(this.state.url,{username:window.localStorage.username,addNum:newNum,orderid:a})
-                if(lis[d].children[0].children[0].checked){
-                    console.log(lis[d].children[1].children[5].innerText)
-                    var sum = this.state.allPrice+Number(c)
-                    this.setState({allPrice:sum})
-                }       
-                
-                
-            }
+    jia(a,b,c,d){
+        var lis =document.getElementsByClassName('goodlist')[1].children;         
+        var newNum=Number(b)+1;
+        this.props.getCart(this.state.url,{username:window.localStorage.username,addNum:newNum,orderid:a})
+        if(lis[d].children[0].children[0].checked){
+            console.log(lis[d].children[1].children[5].innerText)
+            var sum = this.state.allPrice+Number(c)
+            this.setState({allPrice:sum})
+        }       
+        
+        
+    }
             
-            jisuan(){
-                console.log(this.state.orderid)
+    jisuan(){
+            if(this.state.allPrice==0){
+                alert('请选择宝贝');
+            }else{
+
+                alert('确定支付？', '', [
+                    { text: '确定'},
+                    {
+                    text: '取消',
+                    onPress: () =>hashHistory.push('/cart')
+                    },
+                ])
                 
                 hashHistory.push({
-            pathname:'/indent',
-            query:{
-                allPrice:this.state.allPrice ,
-                orderid:this.state.orderid
+                    pathname:'/indent',
+                    query:{
+                        allPrice:this.state.allPrice ,
+                        orderid:this.state.orderid
+                    }
+                })
             }
-        })
+            
+        
 
     }
     allCheck(){          
         if($(".allCheck")[1].checked){
-            $(".oneCheck").prop("checked",true);        
+            $(".oneCheck").prop("checked",true);
+
             }else{          
             $(".oneCheck").prop("checked",false);
+            
+      
             }
      
     }

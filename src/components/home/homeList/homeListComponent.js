@@ -54,7 +54,7 @@ class HomeListComponent extends React.Component{
     }
     buybuy(a){
         
-        console.log(a);
+       
         var d = new Date();
         var str = d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate();
         var storage = window.localStorage;  
@@ -62,9 +62,9 @@ class HomeListComponent extends React.Component{
         data.ordertime = str
         data.username = storage.username
         data.orderstate = 1
-        data.orderId = Date.parse(new Date())
-        data.subtotal = data.goodprice*1
+        data.subtotal = data.goodprice
         data.goodnumber= 1
+        data.orderId = Date.parse(new Date())
         this.props.homeCar(this.state.carurl,data)
         console.log(data)
         alert('Buy Buy Buy', '成功添加到购物车', [

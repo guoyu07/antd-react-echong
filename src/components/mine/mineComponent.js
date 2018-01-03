@@ -1,11 +1,11 @@
 import Spinner from '../spinner/spinnerComponent'
 import React from 'react'
-import { Button, WhiteSpace, WingBlank, Card, NavBar, Icon} from 'antd-mobile';
+import { Button, WhiteSpace, WingBlank, Card, NavBar, Icon,Modal} from 'antd-mobile';
 import { hashHistory } from 'react-router'
 import './css/mine.css'
 import './font/iconfont.css'
 import './css/base.css'
-
+const alert = Modal.alert;
 export default class MineComponent extends React.Component{
     state={
         show:false,

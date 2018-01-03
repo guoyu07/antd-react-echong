@@ -1,6 +1,6 @@
 <?php
     header('Access-Control-Allow-Origin:*');
-    $servername='10.3.135.29';
+    $servername='10.3.135.102';
     $username='root';
     $passWord='';
     $database='petshop';
