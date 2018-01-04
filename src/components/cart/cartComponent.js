@@ -12,7 +12,8 @@ class CartComponent extends React.Component{
         url:'cart.php',
         payurl:'payment.php',
         show:false,
-        allPrice:0
+        allPrice:0,
+        orderid:[]
         
        
     }
@@ -41,12 +42,19 @@ class CartComponent extends React.Component{
         if(lis[a].children[0].children[0].checked){
             var sum = Number(lis[a].children[1].children[5].innerText)+this.state.allPrice
             this.setState({allPrice:sum})
-            this.setState({orderid:b})       
-        }
-        if(!lis[a].children[0].children[0].checked){
+                
+            this.setState({orderid:this.state.orderid.concat(b)}) 
            
+        }
+        if(!lis[a].children[0].children[0].checked){          
             var sum = this.state.allPrice-Number(lis[a].children[1].children[5].innerText)
-            this.setState({allPrice:sum})            
+            this.setState({allPrice:sum})
+            for(var i=0;i<this.state.orderid.length;i++){
+                if(this.state.orderid[i]==b){
+                    this.setState({orderid:this.state.orderid.splice(i,1)})  
+                    
+                }
+            }
         }
     }
     
@@ -64,59 +72,74 @@ class CartComponent extends React.Component{
             }
         }
     }
-            
+    
     jia(a,b,c,d){
         var lis =document.getElementsByClassName('goodlist')[1].children;         
         var newNum=Number(b)+1;
         this.props.getCart(this.state.url,{username:window.localStorage.username,addNum:newNum,orderid:a})
         if(lis[d].children[0].children[0].checked){
-            console.log(lis[d].children[1].children[5].innerText)
+            
             var sum = this.state.allPrice+Number(c)
             this.setState({allPrice:sum})
         }       
         
         
     }
-            
+    
     jisuan(){
-            if(this.state.allPrice==0){
-                alert('请选择宝贝');
-            }else{
-
-                alert('确定支付？', '', [
-                    { text: '确定'},
-                    {
-                    text: '取消',
-                    onPress: () =>hashHistory.push('/cart')
-                    },
-                ])
-                
-                hashHistory.push({
-                    pathname:'/indent',
-                    query:{
-                        allPrice:this.state.allPrice ,
-                        orderid:this.state.orderid
-                    }
-                })
+        if(this.state.allPrice==0){
+            alert('请选择宝贝');
+        }else{
+            console.log(this.state.orderid)
+            for(var i=0;i<this.state.orderid.length;i++){
+                this.props.getCart(this.state.payurl,{orderid:this.state.orderid[i],orderstate:3})
             }
-            
+            hashHistory.push({
+                pathname:'/indent',
+                query:{
+                    allPrice:this.state.allPrice ,
+                    orderid:this.state.orderid
+                }
+            })
+        }
         
-
+        
+        
     }
     allCheck(){          
         if($(".allCheck")[1].checked){
             $(".oneCheck").prop("checked",true);
-
+            var more = $('.xiaoji').slice($('.xiaoji').length/3,($('.xiaoji').length/3)*2);         
+            for(var i=0;i<$('.xiaoji').length/3;i++){
+               this.state.allPrice+= Number(more[i].innerText);
+               this.setState({allPrice:this.state.allPrice})
+            }
+            var orderid = $('.orderid').slice($('.orderid').length/3,($('.orderid').length/3)*2); 
+                
+            var arr=[];
+            for(var i=0;i<$('.orderid').length/3;i++){
+               arr.unshift(orderid[i].innerText)
+              
+               this.setState({orderid:this.state.orderid.concat(arr)})
+            }
+            
+            
             }else{          
             $(".oneCheck").prop("checked",false);
-            
-      
+            this.setState({allPrice:0})
+            this.setState({orderid:[]})
             }
      
     }
-    delete(a){
-        this.props.getCart(this.state.url,{username:window.localStorage.username,deleteid:a})
-       
+    delete(a){            
+        alert('确定删除？', '', [
+            { text: '确定',
+                onPress: () => this.props.getCart(this.state.url,{username:window.localStorage.username,deleteid:a})},
+            {
+                text: '取消',
+           
+            }
+        ])      
     }
     render(){
        
@@ -161,6 +184,7 @@ class CartComponent extends React.Component{
                                                     <span className="nub" ref={item.orderid}>{item.goodnumber}</span>
                                                     <span className="jia" onClick={this.jia.bind(this,item.orderid,item.goodnumber,item.goodprice,index)}>+</span>
                                                     <span className="subtotal">小计：</span><span className="subtotal1">￥</span><span className="subtotal1 xiaoji">{item.subtotal}</span>
+                                                    <span className="orderid">{item.orderid}</span>
                                                 </h4>
                                             </li>
                             }.bind(this))

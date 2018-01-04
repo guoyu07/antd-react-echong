@@ -14,8 +14,8 @@
     $username = isset($_POST['username']) ? $_POST['username'] :'';
     $goodcolor = isset($_POST['goodcolor']) ? $_POST['goodcolor'] :'';
     $orderId = isset($_POST['orderId']) ? $_POST['orderId'] :'';
-    $subtotal = isset($_post['subtotal'])?$_post['subtotal'] : '';
-    $orderstate = isset($_POST['orderstate']) ? $_POST['orderstate'] :'1';
+    $subtotal = isset($_POST['subtotal'])?$_POST['subtotal'] : '';
+    $orderstate = isset($_POST['orderstate']) ? $_POST['orderstate'] :'';
     
 
     switch ($title)

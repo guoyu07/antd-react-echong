@@ -16,20 +16,29 @@ const Brief = Item.Brief;
         url:'payment.php'
     }
     payment(){
-        console.log(this.props.location.query.orderid)
+        console.log(typeof this.props.location.query.orderid)
         
-        alert('Buy Buy Buy', '付款成功', [
-            { text: '留在原地'},
+        alert('等待收货', '付款成功', [
+            { text: '恭喜', onPress: () =>{
+              hashHistory.push('/home');}},
             {
                 text: '确定',
                 onPress: () =>{
-                    this.props.getPayment(this.state.url,{orderid:this.props.location.query.orderid,orderstate:2})
+                    for(var i=0;i<this.props.location.query.orderid.length;i++){
+                        if((typeof this.props.location.query.orderid)==string){
+                        this.props.getPayment(this.state.url,{orderid:this.props.location.query.orderid,orderstate:2})
+                            
+                        }else{
+
+                            this.props.getPayment(this.state.url,{orderid:this.props.location.query.orderid[i],orderstate:2})
+                        }
+                    }
                   hashHistory.push('/home');}
             },
           ])
     }
     componentDidMount(){
-        console.log(this.props.paymentset)
+       
         if(this.props.paymentset){
             alert('结账成功')
             hashHistory.push('/home')
@@ -86,7 +95,7 @@ const Brief = Item.Brief;
     }
 }
 const paymentToState = function(state){ 
-    console.log(state)
+   
     return {
         paymentset: state.payment.response
     }

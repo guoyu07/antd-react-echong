@@ -14,9 +14,10 @@
 .jian{margin-left:1rem;}
 .jia{color:red;}
 .checkout{position:fixed;height:3.5rem;line-height:3.5rem;bottom:3rem;border-top:1px solid rgba(243, 239, 239, 0.87);width:100%;padding:0.5rem;text-align:left;z-index:9999;background-color:#fff;}
-.enter{position:fixed;bottom:3rem;width:7rem;height:3rem;background-color:red;color:#fff;margin-left:8rem;border-radius:0.2rem;font-size:1rem;}
-.allprice{color:red;font-size:1.2rem;}
+.enter{position:fixed;bottom:3rem;width:7rem;height:3rem;background-color:red;color:#fff;margin-left:13rem;border-radius:0.2rem;font-size:1rem;}
+.allprice{color:red;font-size:1.2rem;position:absolute;top:0.4rem;left:2.5rem;}
 .allCheck{margin-right:1rem;}
 .subtotal{margin-left:10rem;}
 .subtotal1{color:red;font-size:1.2rem;}
 .delgood{display:inline-block;width:2rem;height:1rem;position:absolute;top:3.5rem;right:1rem;background-color:red;color:#fff;}
+.orderid{display:none;}

@@ -18,7 +18,7 @@ header('Access-Control-Allow-Origin:*');
    
     if(!$result){
         class Obj{
-                    var $exist = 'false';
+            var $exist = 'false';
                 }
                 $o = new Obj();
                 $arr = array($o);
@@ -28,7 +28,7 @@ header('Access-Control-Allow-Origin:*');
         $result = excute($changepwd);
         
         class Obj{
-                    var $aa = 'true';
+            var $aa = 'true';
                 }
                 $o = new Obj();
                 $arr = array($o);
