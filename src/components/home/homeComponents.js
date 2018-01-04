@@ -91,18 +91,20 @@ class HomeComponent extends React.Component{
             { title: <Badge>狗狗玩具</Badge> },
           ];
         return (
-          <div>
-              <h1 style={{display:'flex'}}>
-              <p style={{fontSize:'1.2rem',lineHeight:'100%',marginTop:'0.75rem'}}>狗站 |</p>
-              <SearchBar ref="searchText"style={{width:'70%'}}placeholder="Search" />
-              <span onClick={this.searchList.bind(this)} style={{color:'red',marginTop:'0.8rem'}}>搜索一波</span>
-            </h1>
-             <Tabs tabs={tabs}
-                swipeable={false}
-                ref="category"
-                onTabClick={this.categoryFunction.bind(this)}
-              >
-            </Tabs>
+          <div style={{paddingTop:'5.5rem'}}>
+                <div style={{position:'fixed',top:'0rem',width:'100%',zIndex:'100',background:'white'}}>
+                  <h1 style={{display:'flex'}}>
+                  <p style={{fontSize:'1.2rem',lineHeight:'100%',marginTop:'0.75rem'}}>狗站 |</p>
+                  <SearchBar ref="searchText"style={{width:'70%'}}placeholder="Search" />
+                  <span onClick={this.searchList.bind(this)} style={{color:'red',marginTop:'0.8rem'}}>搜索一波</span>
+                    </h1>
+                <Tabs tabs={tabs}
+                    swipeable={false}
+                    ref="category"
+                    onTabClick={this.categoryFunction.bind(this)}
+                  >
+                </Tabs> 
+                </div>
                 <CarouselComponent></CarouselComponent>
                 <ul className="dog_type">
                     {

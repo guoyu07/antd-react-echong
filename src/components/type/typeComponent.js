@@ -14,17 +14,13 @@ import * as typeAction from './typeAction';
         title:'狗狗服饰'
     }
     componentDidMount(){
-
-
         this.props.getDatazx(this.state.url, {title:this.state.title})
         $('.am-tabs-tab-bar-wrap').css({display:'block'})
     }
     cart(event){
-      console.log(event)
       //this.props.getType(this,.state.carturl,{orderId:})
     }
     change(event){
-      console.log(event.target.parentNode.parentNode.id)
      var id = event.target.parentNode.parentNode.id 
         hashHistory.push({
          pathname:'/shoplist',
@@ -33,7 +29,6 @@ import * as typeAction from './typeAction';
             title:this.state.title
           }
         })
-        console.log(666);
         this.props.getDatazx(this.state.url, {title:this.state.title})
 
 

@@ -25,15 +25,21 @@ class HomeSearchComponent extends React.Component{
     searchText(a){
         this.props.getHomeSearch(this.state.url,{searchText:a})
     }
-    wanwan(){
-
+    flyDetail(a,c){
+         hashHistory.push({
+            pathname:'/shoplist',
+            query:{
+                id:a,
+                title:'狗狗服饰'
+            }
+        })
     }
     render(){
         const hot=['卫衣','马甲','可爱','2017年新款','那个玩具','吃的','喝的','拉的','住的','玩的','都没有！']
         if(!this.props.homeSearch||this.props.homeSearch.length==0){
             return(
-                <div>
-                    <h1 style={{display:'flex',height:'3.2rem',lineHeight:'3rem'}}>
+                <div style={{paddingTop:'3.2rem'}}>
+                    <h1 style={{display:'flex',height:'3.2rem',lineHeight:'3rem',position:'fixed',top:'0rem',width:'100%',background:'white',zIndex:'100'}}>
                         <span className="icon-p-zuo iconfont"style={{fontSize:'1.5rem'}}onClick={this.flyHome}></span>
                         <SearchBar style={{width:'70%'}}placeholder="搜索" ref="searchText" />
                         <span onClick={this.searchList.bind(this)} style={{color:'black',marginTop:'-0.1rem',fontSize:'1.1rem'}}>搜索一波</span>
@@ -55,8 +61,8 @@ class HomeSearchComponent extends React.Component{
             )
         }
         return(
-            <div>
-                <h1 style={{display:'flex',height:'3.2rem',lineHeight:'3rem'}}>
+            <div style={{paddingTop:'3.2rem'}}>
+                <h1 style={{display:'flex',height:'3.2rem',lineHeight:'3rem',position:'fixed',top:'0rem',width:'100%',background:'white',zIndex:'100'}}>
                     <span className="icon-p-zuo iconfont"style={{fontSize:'1.5rem'}}onClick={this.flyHome}></span>
                     <SearchBar style={{width:'70%'}}placeholder="搜索" ref="searchText" />
                     <span onClick={this.searchList.bind(this)} style={{color:'black',marginTop:'-0.1rem',fontSize:'1.1rem'}}>搜索一波</span>
@@ -65,9 +71,9 @@ class HomeSearchComponent extends React.Component{
                     {
                         this.props.homeSearch.map(function(item,index){
                             return <li key={index} style={{display:'flex'}}>
-                                        <div style={{flex:'30%'}}><img src={item.goodpic}style={{width:'6.25rem'}}/></div>
+                                        <div style={{flex:'30%'}}><img src={item.goodpic}style={{width:'6.25rem'}}onClick={this.flyDetail.bind(this,item.goodId,item.goodclassify)}/></div>
                                         <div style={{flex:'70%'}} className="homeList_text">
-                                            <p>{item.gooddetail}</p>
+                                        <p>{item.gooddetail}</p>
                                             <p>¥<span>{item.goodprice}.00</span></p>
                                             <p>互动:(100%好评) 售出:
                                                 <span style={{color:'black'}}>{item.goodaudience}</span>
@@ -75,7 +81,7 @@ class HomeSearchComponent extends React.Component{
                                             </p>
                                         </div>
                                     </li>
-                        })    
+                        }.bind(this))    
                     }
                 </ul>
             </div>

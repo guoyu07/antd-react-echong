@@ -43,7 +43,6 @@ const Brief = Item.Brief;
         if(!this.props.dataset){
             return null
         }
-       
         return   <div id='shoplist'>
                     <div>
                         <NavBar
@@ -69,7 +68,9 @@ const Brief = Item.Brief;
                         <Item extra="好评率（100%）" arrow="horizontal" onClick={() => {}} className="my-commit"><span >商品评论</span></Item>
                         {
                             JSON.parse(this.props.dataset.text).data2.map(function(item,index){
+
                                  return <Item extra={item.time} align="top" key={index} thumb="https://zos.alipayobjects.com/rmsportal/dNuvNrtqUztHCwM.png" multipleLine>
+
                                  {item.username}<Brief>{item.detail}</Brief>
                                 </Item>
                             }).slice(0,3)
@@ -95,7 +96,6 @@ const Brief = Item.Brief;
   
 }
 const shopState = function(state){
-   
     return {
         dataset: state.shopReducer.response,
         status:state.shopReducer.status
